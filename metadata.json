@@ -1,0 +1,5 @@
+{
+  "name": "English for Presentations Mastery",
+  "description": "An interactive learning platform for mastering English presentation skills, based on the Oxford English for Presentations textbook.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
