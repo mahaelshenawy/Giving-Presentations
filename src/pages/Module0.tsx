@@ -21,7 +21,7 @@ export default function Module0() {
             className="w-full h-full object-cover"
             poster="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&q=80&w=1000"
           >
-            <source src="/Give a Killer Presentation.mp4" type="video/mp4" />
+            <source src="./presentation.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
