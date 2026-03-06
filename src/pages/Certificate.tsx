@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useProgressStore } from '../store/useProgress';
 import { Download, Award, ShieldCheck, Globe, Loader2 } from 'lucide-react';
-import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
 import jsPDF from 'jspdf';
 import { motion } from 'motion/react';
 
@@ -29,42 +29,29 @@ export default function Certificate() {
     setIsDownloading(true);
     
     try {
-      // Ensure the component is fully visible and rendered
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
       const element = certificateRef.current;
       
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
+      // Use html-to-image for better reliability than html2canvas
+      const dataUrl = await toPng(element, {
+        quality: 1.0,
+        pixelRatio: 2,
         backgroundColor: '#ffffff',
-        logging: false,
         width: 1000,
         height: 700,
-        onclone: (clonedDoc) => {
-          // Fix for some browsers where transformed elements don't render correctly in html2canvas
-          const cert = clonedDoc.querySelector('.relative.bg-white') as HTMLElement;
-          if (cert) {
-            cert.style.transform = 'none';
-            cert.style.position = 'static';
-            cert.style.margin = '0';
-          }
-        }
+        cacheBust: true,
       });
       
-      const imgData = canvas.toDataURL('image/png', 1.0);
       const pdf = new jsPDF({
         orientation: 'landscape',
         unit: 'px',
         format: [1000, 700]
       });
       
-      pdf.addImage(imgData, 'PNG', 0, 0, 1000, 700);
+      pdf.addImage(dataUrl, 'PNG', 0, 0, 1000, 700);
       pdf.save(`${userName.replace(/\s+/g, '_')}_Presentations_Mastery_Certificate.pdf`);
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Could not generate PDF. Please try using a desktop browser or taking a screenshot.');
+      alert('Could not generate PDF. Please try again or take a screenshot of this page.');
     } finally {
       setIsDownloading(false);
     }
