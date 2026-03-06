@@ -13,8 +13,9 @@ const wiseItems = [
   { id: 'e', content: 'Explain why the audience will be interested (e.g., "This is relevant to you because...")', correctIndex: 3 },
 ];
 
-    const { setQuizScore } = useProgressStore();
-    return (
+export default function Module1() {
+  const { setQuizScore } = useProgressStore();
+  return (
     <ModuleLayout
       id="module1"
       title="1. Let's get started"
