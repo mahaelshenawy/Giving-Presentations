@@ -32,6 +32,7 @@ function selectBestVoice(): SpeechSynthesisVoice | null {
   const englishVoices = voices.filter(v => v.lang.startsWith('en'));
 
   const premiumPatterns = [
+    'Kore',
     'Google UK English Female',
     'Google UK English Male',
     'Google US English',

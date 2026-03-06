@@ -30,32 +30,35 @@ export default function Certificate() {
     
     try {
       const element = certificateRef.current;
+      if (!element) return;
 
-      const svgs = element.querySelectorAll('svg');
-      svgs.forEach((svg) => {
-        svg.setAttribute('width', svg.getBoundingClientRect().width.toString());
-        svg.setAttribute('height', svg.getBoundingClientRect().height.toString());
-      });
+      // Small delay to ensure all animations and fonts are settled
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       const canvas = await html2canvas(element, {
         scale: 2,
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#ffffff',
-        logging: false,
+        logging: true,
+        onclone: (clonedDoc) => {
+          const clonedElement = clonedDoc.querySelector('[data-certificate="true"]') as HTMLElement;
+          if (clonedElement) {
+            clonedElement.style.transform = 'none';
+            clonedElement.style.boxShadow = 'none';
+            clonedElement.style.display = 'flex';
+          }
+        }
       });
       
-      const imgData = canvas.toDataURL('image/png');
-      const pdfWidth = canvas.width;
-      const pdfHeight = canvas.height;
-      
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
       const pdf = new jsPDF({
         orientation: 'landscape',
         unit: 'px',
-        format: [pdfWidth, pdfHeight]
+        format: [1000, 700]
       });
       
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.addImage(imgData, 'JPEG', 0, 0, 1000, 700);
       pdf.save(`${userName.replace(/\s+/g, '_')}_Presentations_Mastery_Certificate.pdf`);
     } catch (error) {
       console.error('Error generating PDF:', error);
