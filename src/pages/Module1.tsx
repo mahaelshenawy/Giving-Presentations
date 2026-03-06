@@ -2,6 +2,7 @@ import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import DragAndDrop from '../components/DragAndDrop';
 import AudioRecorder from '../components/AudioRecorder';
+import InteractiveHook from '../components/InteractiveHook';
 
 const wiseItems = [
   { id: 'w', content: 'Welcome the audience (e.g., "Good morning, ladies and gentlemen.")', correctIndex: 0 },
@@ -76,6 +77,12 @@ export default function Module1() {
             <li><strong>Give them a problem to think about:</strong> "Imagine you had to reorganize the sales department. What would be your first step?"</li>
           </ol>
         </div>
+
+        <InteractiveHook 
+          title="Practice Your Hook"
+          description="Based on the techniques above, write your own attention-grabbing opener for a presentation about 'The Future of Remote Work'."
+          placeholder="e.g., 'Did you know that 70% of employees would trade their office snacks for one more day of working from home?'"
+        />
       </section>
 
       <DragAndDrop 
