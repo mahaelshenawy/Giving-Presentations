@@ -16,67 +16,100 @@ const signpostingItems = [
   { id: '5', left: 'Let me briefly summarize what I\'ve said so far.', right: 'Summarizing a point' },
 ];
 
-const module2Slides = [
-  {
-    id: 'body-language',
-    title: 'Power of Body Language',
-    image: 'https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="space-y-4">
-        <p>Over <strong className="text-indigo-600">70%</strong> of communication is non-verbal. Your posture speaks before you do.</p>
-        <ul className="space-y-2">
-          <li className="flex gap-2">✅ <span>Stand straight but relaxed (unlocked knees).</span></li>
-          <li className="flex gap-2">✅ <span>Use open hand gestures.</span></li>
-          <li className="flex gap-2">✅ <span>Maintain eye contact with individuals.</span></li>
-          <li className="flex gap-2">❌ <span>Avoid crossing arms or hiding hands.</span></li>
-        </ul>
-      </div>
-    )
-  },
-  {
-    id: 'pacing',
-    title: 'Control Your Pace',
-    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="space-y-4">
-        <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
-          <h4 className="font-black text-indigo-900 mb-2">The 20% Rule</h4>
-          <p className="text-lg">Speak <strong className="text-indigo-600">20% slower</strong> than your normal speed. This ensures clarity and gives your audience time to absorb information.</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'signposting',
-    title: 'Signposting Phrases',
-    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="space-y-4">
-        <p>Guide your audience like a GPS using clear road signs:</p>
-        <div className="space-y-2 text-sm">
-          <p>📍 <strong>Next Point:</strong> "I'd now like to turn to..."</p>
-          <p>📍 <strong>Referring Back:</strong> "As I mentioned before..."</p>
-          <p>📍 <strong>Summarizing:</strong> "Let me briefly summarize..."</p>
-          <p>📍 <strong>Handling Issues:</strong> "Identify, clarify, tackle, solve."</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'matching-exercise',
-    title: 'Exercise: Signposting Functions',
-    content: (
-      <MatchingExercise 
-        title="Functions"
-        description="Match phrases on the left with functions on the right."
-        items={signpostingItems}
-      />
-    )
-  }
-];
-
 export default function Module2() {
   const { setQuizScore } = useProgressStore();
+
+  const module2Slides = [
+    {
+      id: 'body-language',
+      title: 'Power of Body Language',
+      image: 'https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="space-y-4">
+          <p>Over <strong className="text-indigo-600">70%</strong> of communication is non-verbal. Your posture speaks before you do.</p>
+          <ul className="space-y-2">
+            <li className="flex gap-2">✅ <span>Stand straight but relaxed (unlocked knees).</span></li>
+            <li className="flex gap-2">✅ <span>Use open hand gestures.</span></li>
+            <li className="flex gap-2">✅ <span>Maintain eye contact with individuals.</span></li>
+            <li className="flex gap-2">❌ <span>Avoid crossing arms or hiding hands.</span></li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      id: 'pacing',
+      title: 'Control Your Pace',
+      image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="space-y-4">
+          <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+            <h4 className="font-black text-indigo-900 mb-2">The 20% Rule</h4>
+            <p className="text-lg">Speak <strong className="text-indigo-600">20% slower</strong> than your normal speed. This ensures clarity and gives your audience time to absorb information.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'signposting',
+      title: 'Signposting Phrases',
+      image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="space-y-4">
+          <p>Guide your audience like a GPS using clear road signs:</p>
+          <div className="space-y-2 text-sm">
+            <p>📍 <strong>Next Point:</strong> "I'd now like to turn to..."</p>
+            <p>📍 <strong>Referring Back:</strong> "As I mentioned before..."</p>
+            <p>📍 <strong>Summarizing:</strong> "Let me briefly summarize..."</p>
+            <p>📍 <strong>Handling Issues:</strong> "Identify, clarify, tackle, solve."</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'matching-exercise',
+      title: 'Exercise: Signposting Functions',
+      content: (
+        <MatchingExercise 
+          title="Functions"
+          description="Match phrases on the left with functions on the right."
+          items={signpostingItems}
+        />
+      )
+    },
+    {
+      id: 'quiz-slide',
+      title: 'Check Your Knowledge',
+      content: (
+        <Quiz 
+          id="module2"
+          title="Module Assessment"
+          description="Test your understanding of body language and signposting."
+          onComplete={(score) => setQuizScore('module2', score)}
+          questions={[
+            {
+              id: 'm2-q1',
+              question: "How much slower should you speak than your normal conversational speed?",
+              options: ['10%', '20%', '50%', 'Exactly the same'],
+              correctAnswer: 1
+            },
+            {
+              id: 'm2-q2',
+              question: "True or False: Crossing your arms is an 'open gesture' that shows confidence.",
+              options: ['True', 'False'],
+              correctAnswer: 1
+            },
+            {
+              id: 'm2-q3',
+              question: "Which phrase is used for 'referring back'?",
+              options: ["Moving to the next point...", "As I mentioned before...", "In this part of my presentation...", "Let me briefly summarize..."],
+              correctAnswer: 1
+            }
+          ]}
+        />
+      )
+    }
+  ];
+
   return (
     <ModuleLayout
       id="module2"
@@ -86,35 +119,7 @@ export default function Module2() {
       nextModule="/module/3"
     >
       <ModuleAudio moduleId="module2" narration={MODULE_2_NARRATION} />
-      
       <SlideDeck slides={module2Slides} />
-
-      <Quiz 
-        id="module2"
-        title="Check Your Knowledge: Section 2"
-        description="Test your understanding of body language and signposting."
-        onComplete={(score) => setQuizScore('module2', score)}
-        questions={[
-          {
-            id: 'm2-q1',
-            question: "How much slower should you speak than your normal conversational speed?",
-            options: ['10%', '20%', '50%', 'Exactly the same'],
-            correctAnswer: 1
-          },
-          {
-            id: 'm2-q2',
-            question: "True or False: Crossing your arms is an 'open gesture' that shows confidence.",
-            options: ['True', 'False'],
-            correctAnswer: 1
-          },
-          {
-            id: 'm2-q3',
-            question: "Which phrase is used for 'referring back'?",
-            options: ["Moving to the next point...", "As I mentioned before...", "In this part of my presentation...", "Let me briefly summarize..."],
-            correctAnswer: 1
-          }
-        ]}
-      />
     </ModuleLayout>
   );
 }

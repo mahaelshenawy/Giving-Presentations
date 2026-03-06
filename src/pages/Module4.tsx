@@ -18,68 +18,94 @@ const trendCards = [
   { id: '6', front: 'to hit a low', back: 'to reach the lowest point', category: 'Downward Trend' },
 ];
 
-const module4Slides = [
-  {
-    id: 'trends',
-    title: 'Describing Trends',
-    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="space-y-4">
-        <p>Use two powerful grammar patterns to describe change:</p>
-        <div className="space-y-3">
-          <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
-            <p className="text-xs font-bold text-indigo-600 uppercase">Pattern 1: Verb + Adverb</p>
-            <p className="text-lg">"Sales <strong className="text-indigo-900">increased sharply</strong>."</p>
-          </div>
-          <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
-            <p className="text-xs font-bold text-indigo-600 uppercase">Pattern 2: Adj + Noun</p>
-            <p className="text-lg">"There was a <strong className="text-indigo-900">sharp increase</strong>."</p>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'flashcards-exercise',
-    title: 'Vocabulary Drill',
-    content: (
-      <Flashcards 
-        title="Trend Vocab"
-        description="Review common verbs and adverbs."
-        cards={trendCards}
-      />
-    )
-  },
-  {
-    id: 'axes',
-    title: 'Introducing Visuals',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="space-y-4">
-        <p>Never assume the audience understands your chart. Explain it:</p>
-        <div className="space-y-2 text-sm italic border-l-4 border-indigo-200 pl-4 bg-slate-50 p-4 rounded-r-xl">
-          <p>"The <strong className="text-indigo-600">vertical axis</strong> represents revenue..."</p>
-          <p>"The <strong className="text-indigo-600">horizontal axis</strong> shows time..."</p>
-          <p>"I'd like to draw your <strong className="text-indigo-600">attention</strong> to..."</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'graph-exercise',
-    title: 'Exercise: Describe the Graph',
-    content: (
-      <GraphDescription 
-        title="Practice"
-        description="Describe the trend shown below."
-        keywords={['increase', 'rise', 'steadily', 'gradually', 'trend', 'sales']}
-      />
-    )
-  }
-];
-
 export default function Module4() {
   const { setQuizScore } = useProgressStore();
+
+  const module4Slides = [
+    {
+      id: 'trends',
+      title: 'Describing Trends',
+      image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="space-y-4">
+          <p>Use two powerful grammar patterns to describe change:</p>
+          <div className="space-y-3">
+            <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
+              <p className="text-xs font-bold text-indigo-600 uppercase">Pattern 1: Verb + Adverb</p>
+              <p className="text-lg">"Sales <strong className="text-indigo-900">increased sharply</strong>."</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
+              <p className="text-xs font-bold text-indigo-600 uppercase">Pattern 2: Adj + Noun</p>
+              <p className="text-lg">"There was a <strong className="text-indigo-900">sharp increase</strong>."</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'flashcards-exercise',
+      title: 'Vocabulary Drill',
+      content: (
+        <Flashcards 
+          title="Trend Vocab"
+          description="Review common verbs and adverbs."
+          cards={trendCards}
+        />
+      )
+    },
+    {
+      id: 'axes',
+      title: 'Introducing Visuals',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="space-y-4">
+          <p>Never assume the audience understands your chart. Explain it:</p>
+          <div className="space-y-2 text-sm italic border-l-4 border-indigo-200 pl-4 bg-slate-50 p-4 rounded-r-xl">
+            <p>"The <strong className="text-indigo-600">vertical axis</strong> represents revenue..."</p>
+            <p>"The <strong className="text-indigo-600">horizontal axis</strong> shows time..."</p>
+            <p>"I'd like to draw your <strong className="text-indigo-600">attention</strong> to..."</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'graph-exercise',
+      title: 'Exercise: Describe the Graph',
+      content: (
+        <GraphDescription 
+          title="Practice"
+          description="Describe the trend shown below."
+          keywords={['increase', 'rise', 'steadily', 'gradually', 'trend', 'sales']}
+        />
+      )
+    },
+    {
+      id: 'quiz-slide',
+      title: 'Check Your Knowledge',
+      content: (
+        <Quiz 
+          id="module4"
+          title="Module Assessment"
+          onComplete={(score) => setQuizScore('module4', score)}
+          questions={[
+            {
+              id: 'm4-q1',
+              question: "Which word describes a trend that goes up and down?",
+              options: ['Stable', 'Peak', 'Fluctuate', 'Sharp'],
+              correctAnswer: 2
+            },
+            {
+              id: 'm4-q2',
+              question: "True or False: 'Sharply' means the same as 'Gradually'.",
+              options: ['True', 'False'],
+              correctAnswer: 1
+            }
+          ]}
+        />
+      )
+    }
+  ];
+
   return (
     <ModuleLayout
       id="module4"
@@ -89,28 +115,7 @@ export default function Module4() {
       nextModule="/module/5"
     >
       <ModuleAudio moduleId="module4" narration={MODULE_4_NARRATION} />
-      
       <SlideDeck slides={module4Slides} />
-
-      <Quiz 
-        id="module4"
-        title="Check Your Knowledge: Section 4"
-        onComplete={(score) => setQuizScore('module4', score)}
-        questions={[
-          {
-            id: 'm4-q1',
-            question: "Which word describes a trend that goes up and down?",
-            options: ['Stable', 'Peak', 'Fluctuate', 'Sharp'],
-            correctAnswer: 2
-          },
-          {
-            id: 'm4-q2',
-            question: "True or False: 'Sharply' means the same as 'Gradually'.",
-            options: ['True', 'False'],
-            correctAnswer: 1
-          }
-        ]}
-      />
     </ModuleLayout>
   );
 }

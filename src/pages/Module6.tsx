@@ -47,65 +47,97 @@ const qaScenarios = [
   }
 ];
 
-const module6Slides = [
-  {
-    id: 'process',
-    title: 'The Q&A Process',
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="grid grid-cols-2 gap-4 text-xs">
-        <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-          <strong className="text-indigo-600">1. Listen</strong>
-          <p>Pay close attention. Don't interrupt.</p>
-        </div>
-        <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-          <strong className="text-indigo-600">2. Understand</strong>
-          <p>Paraphrase if the question is unclear.</p>
-        </div>
-        <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-          <strong className="text-indigo-600">3. Communicate</strong>
-          <p>Address the entire audience.</p>
-        </div>
-        <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-          <strong className="text-indigo-600">4. Check</strong>
-          <p>"Does that answer your question?"</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'simulator-exercise',
-    title: 'Exercise: Q&A Simulator',
-    content: (
-      <QASimulation 
-        title="Handle the Audience"
-        description="Choose the most professional response for each scenario."
-        scenarios={qaScenarios}
-      />
-    )
-  },
-  {
-    id: 'difficult',
-    title: 'Difficult Situations',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000',
-    content: (
-      <div className="space-y-3">
-        <div className="p-3 bg-red-50 text-red-900 rounded-xl border border-red-100 text-sm">
-          <strong>Hostile Question?</strong> Reformulate into neutral terms before answering.
-        </div>
-        <div className="p-3 bg-amber-50 text-amber-900 rounded-xl border border-amber-100 text-sm">
-          <strong>Don't know the answer?</strong> Be honest. "I'll find out and get back to you."
-        </div>
-        <div className="p-3 bg-blue-50 text-blue-900 rounded-xl border border-blue-100 text-sm">
-          <strong>Question too early?</strong> Postpone politely. "I'll deal with that later."
-        </div>
-      </div>
-    )
-  }
-];
-
 export default function Module6() {
   const { setQuizScore } = useProgressStore();
+
+  const module6Slides = [
+    {
+      id: 'process',
+      title: 'The Q&A Process',
+      image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="grid grid-cols-2 gap-4 text-xs">
+          <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+            <strong className="text-indigo-600">1. Listen</strong>
+            <p>Pay close attention. Don't interrupt.</p>
+          </div>
+          <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+            <strong className="text-indigo-600">2. Understand</strong>
+            <p>Paraphrase if the question is unclear.</p>
+          </div>
+          <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+            <strong className="text-indigo-600">3. Communicate</strong>
+            <p>Address the entire audience.</p>
+          </div>
+          <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+            <strong className="text-indigo-600">4. Check</strong>
+            <p>"Does that answer your question?"</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'simulator-exercise',
+      title: 'Exercise: Q&A Simulator',
+      content: (
+        <QASimulation 
+          title="Handle the Audience"
+          description="Choose the most professional response for each scenario."
+          scenarios={qaScenarios}
+        />
+      )
+    },
+    {
+      id: 'difficult',
+      title: 'Difficult Situations',
+      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000',
+      content: (
+        <div className="space-y-3">
+          <div className="p-3 bg-red-50 text-red-900 rounded-xl border border-red-100 text-sm">
+            <strong>Hostile Question?</strong> Reformulate into neutral terms before answering.
+          </div>
+          <div className="p-3 bg-amber-50 text-amber-900 rounded-xl border border-amber-100 text-sm">
+            <strong>Don't know the answer?</strong> Be honest. "I'll find out and get back to you."
+          </div>
+          <div className="p-3 bg-blue-50 text-blue-900 rounded-xl border border-blue-100 text-sm">
+            <strong>Question too early?</strong> Postpone politely. "I'll deal with that later."
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'quiz-slide',
+      title: 'Check Your Knowledge',
+      content: (
+        <Quiz 
+          id="module6"
+          title="Module Assessment"
+          onComplete={(score) => setQuizScore('module6', score)}
+          questions={[
+            {
+              id: 'm6-q1',
+              question: "What is the best way to handle a hostile question?",
+              options: ['Ignore it', 'Tell them it is a bad question', 'Reformulate it into neutral terms', 'Ask them to leave'],
+              correctAnswer: 2
+            },
+            {
+              id: 'm6-q2',
+              question: "True or False: If you don't know the answer, you should always try to guess.",
+              options: ['True', 'False'],
+              correctAnswer: 1
+            },
+            {
+              id: 'm6-q3',
+              question: "What is the final step in the Q&A Process?",
+              options: ['Listen', 'Understand', 'Communicate', 'Check'],
+              correctAnswer: 3
+            }
+          ]}
+        />
+      )
+    }
+  ];
+
   return (
     <ModuleLayout
       id="module6"
@@ -114,34 +146,7 @@ export default function Module6() {
       prevModule="/module/5"
     >
       <ModuleAudio moduleId="module6" narration={MODULE_6_NARRATION} />
-      
       <SlideDeck slides={module6Slides} />
-
-      <Quiz 
-        id="module6"
-        title="Check Your Knowledge: Section 6"
-        onComplete={(score) => setQuizScore('module6', score)}
-        questions={[
-          {
-            id: 'm6-q1',
-            question: "What is the best way to handle a hostile question?",
-            options: ['Ignore it', 'Tell them it is a bad question', 'Reformulate it into neutral terms', 'Ask them to leave'],
-            correctAnswer: 2
-          },
-          {
-            id: 'm6-q2',
-            question: "True or False: If you don't know the answer, you should always try to guess.",
-            options: ['True', 'False'],
-            correctAnswer: 1
-          },
-          {
-            id: 'm6-q3',
-            question: "What is the final step in the Q&A Process?",
-            options: ['Listen', 'Understand', 'Communicate', 'Check'],
-            correctAnswer: 3
-          }
-        ]}
-      />
     </ModuleLayout>
   );
 }
