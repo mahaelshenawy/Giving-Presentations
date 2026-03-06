@@ -48,6 +48,17 @@ export default function Module3() {
       prevModule="/module/2"
       nextModule="/module/4"
     >
+      <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
+        <img 
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
+          alt="Data visualization" 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
+          <p className="text-white font-medium text-lg">Impactful visuals tell a story that words cannot.</p>
+        </div>
+      </div>
+
       <section className="prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">The Rule of Six</h2>
         <p className="text-slate-600 mb-6">

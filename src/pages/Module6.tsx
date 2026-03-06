@@ -49,6 +49,17 @@ export default function Module6() {
       description="Learn strategies for handling the Q&A session, dealing with difficult questions, and maintaining control."
       prevModule="/module/5"
     >
+      <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
+        <img 
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000" 
+          alt="Q&A Session" 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
+          <p className="text-white font-medium text-lg">Confidence in Q&A turns questions into opportunities.</p>
+        </div>
+      </div>
+
       <section className="prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">Handling Questions</h2>
         <p className="text-slate-600 mb-6">

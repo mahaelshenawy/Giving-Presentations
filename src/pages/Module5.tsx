@@ -11,6 +11,17 @@ export default function Module5() {
       prevModule="/module/4"
       nextModule="/module/6"
     >
+      <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
+        <img 
+          src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000" 
+          alt="Meeting conclusion" 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
+          <p className="text-white font-medium text-lg">A strong finish ensures your message stays with the audience.</p>
+        </div>
+      </div>
+
       <section className="prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">The Anatomy of a Conclusion</h2>
         <p className="text-slate-600 mb-6">
