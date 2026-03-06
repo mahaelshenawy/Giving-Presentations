@@ -51,7 +51,7 @@ export default function ModuleLayout({
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="max-w-4xl mx-auto pb-20 px-4 sm:px-6"
+      className="max-w-none mx-auto pb-20 px-4 sm:px-6 md:px-12"
     >
       <header className="mb-12 pt-8">
         <div className="flex items-center gap-4 mb-3">

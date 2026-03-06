@@ -91,6 +91,37 @@ const module1Slides = [
         </div>
       </div>
     )
+  },
+  {
+    id: 'practice-hook',
+    title: 'Practice Your Hook',
+    content: (
+      <InteractiveHook 
+        title="Your Turn"
+        description="Write an attention-grabbing opener for 'The Future of Remote Work'."
+        placeholder="e.g., 'Did you know that 70% of employees...'"
+      />
+    )
+  },
+  {
+    id: 'exercise-wise',
+    title: 'Exercise: WISE Order',
+    content: (
+      <DragAndDrop 
+        title="Order the Opening"
+        description="Drag the steps into the correct WISE order."
+        items={wiseItems}
+      />
+    )
+  },
+  {
+    id: 'record-wise',
+    title: 'Record Your Opening',
+    content: (
+      <AudioRecorder 
+        prompt="Record yourself opening a presentation using the WISE flow."
+      />
+    )
   }
 ];
 
@@ -107,24 +138,6 @@ export default function Module1() {
       <ModuleAudio moduleId="module1" narration={MODULE_1_NARRATION} />
       
       <SlideDeck slides={module1Slides} />
-
-      <section className="mt-20">
-        <InteractiveHook 
-          title="Practice Your Hook"
-          description="Based on the techniques above, write your own attention-grabbing opener for a presentation about 'The Future of Remote Work'."
-          placeholder="e.g., 'Did you know that 70% of employees would trade their office snacks for one more day of working from home?'"
-        />
-      </section>
-
-      <DragAndDrop 
-        title="Exercise 1: Order the Opening"
-        description="Drag and drop the steps into the correct WISE order for opening a presentation."
-        items={wiseItems}
-      />
-
-      <AudioRecorder 
-        prompt="Record yourself opening a presentation using the WISE flow. Imagine you are introducing a new software tool to your colleagues."
-      />
 
       <Quiz 
         id="module1"
