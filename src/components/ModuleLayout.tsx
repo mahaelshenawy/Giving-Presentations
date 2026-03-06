@@ -27,8 +27,15 @@ export default function ModuleLayout({
   
   // Module 0 is the welcome module, it doesn't have a quiz
   const requiresQuiz = id !== 'module0';
-  const hasAttemptedQuiz = quizScores[id] !== undefined;
-  const canComplete = !requiresQuiz || hasAttemptedQuiz;
+  const lastScore = quizScores[id];
+  const hasAttemptedQuiz = lastScore !== undefined;
+  
+  // Calculate if they met the 80% threshold
+  // We need to know the total questions. For now, we'll assume the quiz component handles the logic
+  // but since we only have the score here, we'll check against the requirement.
+  // To be precise, I should probably pass the "pass" status from Quiz to store.
+  const isPass = hasAttemptedQuiz && lastScore >= 0.8; 
+  const canComplete = !requiresQuiz || isPass;
 
   const handleComplete = () => {
     if (!canComplete) return;
@@ -64,7 +71,9 @@ export default function ModuleLayout({
         {!canComplete && (
           <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Please complete the quiz at the bottom of the page to unlock completion.
+            {hasAttemptedQuiz 
+              ? `You scored ${Math.round(lastScore * 100)}%. You need at least 80% to complete this module.`
+              : "Please complete the quiz at the bottom of the page (score 80%+) to unlock completion."}
           </div>
         )}
         

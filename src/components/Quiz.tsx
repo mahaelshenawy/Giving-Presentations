@@ -32,7 +32,7 @@ export default function Quiz({ id, title, description, questions, onComplete }: 
       if (answers[q.id] === q.correctAnswer) count++;
     });
     if (onComplete) {
-      onComplete(count);
+      onComplete(count / questions.length);
     }
   };
 
