@@ -4,6 +4,7 @@ import DragAndDrop from '../components/DragAndDrop';
 import AudioRecorder from '../components/AudioRecorder';
 import InteractiveHook from '../components/InteractiveHook';
 import Quiz from '../components/Quiz';
+import { useProgressStore } from '../store/useProgress';
 
 const wiseItems = [
   { id: 'w', content: 'Welcome the audience (e.g., "Good morning, ladies and gentlemen.")', correctIndex: 0 },
@@ -12,8 +13,8 @@ const wiseItems = [
   { id: 'e', content: 'Explain why the audience will be interested (e.g., "This is relevant to you because...")', correctIndex: 3 },
 ];
 
-export default function Module1() {
-  return (
+    const { setQuizScore } = useProgressStore();
+    return (
     <ModuleLayout
       id="module1"
       title="1. Let's get started"
@@ -130,8 +131,10 @@ export default function Module1() {
       />
 
       <Quiz 
+        id="module1"
         title="Check Your Knowledge: Module 1"
         description="Test your understanding of the WISE flow and opening techniques."
+        onComplete={(score) => setQuizScore('module1', score)}
         questions={[
           {
             id: 'm1-q1',

@@ -2,6 +2,7 @@ import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import MatchingExercise from '../components/MatchingExercise';
 import Quiz from '../components/Quiz';
+import { useProgressStore } from '../store/useProgress';
 
 const signpostingItems = [
   { id: '1', left: 'In this part of my presentation, I\'d like to tell you about...', right: 'Saying what is coming' },
@@ -12,6 +13,7 @@ const signpostingItems = [
 ];
 
 export default function Module2() {
+  const { setQuizScore } = useProgressStore();
   return (
     <ModuleLayout
       id="module2"
@@ -144,8 +146,10 @@ export default function Module2() {
       />
 
       <Quiz 
+        id="module2"
         title="Check Your Knowledge: Module 2"
         description="Test your understanding of body language and signposting."
+        onComplete={(score) => setQuizScore('module2', score)}
         questions={[
           {
             id: 'm2-q1',

@@ -21,11 +21,18 @@ export default function ModuleLayout({
   prevModule, 
   nextModule 
 }: ModuleLayoutProps) {
-  const { modulesCompleted, markModuleCompleted } = useProgressStore();
+  const { modulesCompleted, markModuleCompleted, quizScores } = useProgressStore();
   const navigate = useNavigate();
   const isCompleted = modulesCompleted[id as keyof typeof modulesCompleted];
+  
+  // Module 0 is the welcome module, it doesn't have a quiz
+  const requiresQuiz = id !== 'module0';
+  const hasAttemptedQuiz = quizScores[id] !== undefined;
+  const canComplete = !requiresQuiz || hasAttemptedQuiz;
 
   const handleComplete = () => {
+    if (!canComplete) return;
+    
     markModuleCompleted(id);
     if (nextModule) {
       navigate(nextModule);
@@ -53,29 +60,41 @@ export default function ModuleLayout({
         {children}
       </div>
 
-      <div className="mt-16 pt-8 border-t border-slate-200 flex items-center justify-between">
-        {prevModule ? (
-          <button
-            onClick={() => navigate(prevModule)}
-            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium py-2 px-4 rounded-lg hover:bg-slate-100 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" /> Previous Module
-          </button>
-        ) : (
-          <div></div>
+      <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col items-center gap-6">
+        {!canComplete && (
+          <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Please complete the quiz at the bottom of the page to unlock completion.
+          </div>
         )}
+        
+        <div className="w-full flex items-center justify-between">
+          {prevModule ? (
+            <button
+              onClick={() => navigate(prevModule)}
+              className="flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium py-2 px-4 rounded-lg hover:bg-slate-100 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" /> Previous Module
+            </button>
+          ) : (
+            <div></div>
+          )}
 
-        <button
-          onClick={handleComplete}
-          className={`flex items-center gap-2 font-medium py-3 px-6 rounded-xl transition-colors shadow-sm ${
-            isCompleted 
-              ? 'bg-slate-100 text-slate-700 hover:bg-slate-200' 
-              : 'bg-indigo-600 text-white hover:bg-indigo-700'
-          }`}
-        >
-          {isCompleted ? 'Continue' : 'Mark as Completed'} 
-          <ArrowRight className="w-4 h-4" />
-        </button>
+          <button
+            onClick={handleComplete}
+            disabled={!canComplete && !isCompleted}
+            className={`flex items-center gap-2 font-medium py-3 px-6 rounded-xl transition-colors shadow-sm ${
+              isCompleted 
+                ? 'bg-slate-100 text-slate-700 hover:bg-slate-200' 
+                : !canComplete
+                ? 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                : 'bg-indigo-600 text-white hover:bg-indigo-700'
+            }`}
+          >
+            {isCompleted ? 'Continue' : 'Mark as Completed'} 
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </motion.div>
   );

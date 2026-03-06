@@ -2,8 +2,10 @@ import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import ConclusionBuilder from '../components/ConclusionBuilder';
 import Quiz from '../components/Quiz';
+import { useProgressStore } from '../store/useProgress';
 
 export default function Module5() {
+  const { setQuizScore } = useProgressStore();
   return (
     <ModuleLayout
       id="module5"
@@ -105,8 +107,10 @@ export default function Module5() {
       />
 
       <Quiz 
+        id="module5"
         title="Check Your Knowledge: Module 5"
         description="Test your understanding of effective conclusions."
+        onComplete={(score) => setQuizScore('module5', score)}
         questions={[
           {
             id: 'm5-q1',

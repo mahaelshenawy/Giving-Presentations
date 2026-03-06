@@ -2,6 +2,7 @@ import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import Quiz from '../components/Quiz';
 import VisualDesignChallenge from '../components/VisualDesignChallenge';
+import { useProgressStore } from '../store/useProgress';
 
 const numberQuestions = [
   {
@@ -52,6 +53,7 @@ const numberQuestions = [
 ];
 
 export default function Module3() {
+  const { setQuizScore } = useProgressStore();
   return (
     <ModuleLayout
       id="module3"
@@ -148,8 +150,10 @@ export default function Module3() {
       </section>
 
       <Quiz 
+        id="module3"
         title="Exercise 3: Numbers and Approximations"
         description="Test your knowledge on how to say numbers and use approximations correctly in English."
+        onComplete={(score) => setQuizScore('module3', score)}
         questions={numberQuestions}
       />
     </ModuleLayout>

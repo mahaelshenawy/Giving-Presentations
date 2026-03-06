@@ -5,6 +5,8 @@ interface ProgressState {
   userName: string;
   setUserName: (name: string) => void;
   modulesCompleted: Record<string, boolean>;
+  quizScores: Record<string, number>;
+  setQuizScore: (moduleId: string, score: number) => void;
   markModuleCompleted: (moduleId: string) => void;
   resetProgress: () => void;
 }
@@ -23,6 +25,14 @@ export const useProgressStore = create<ProgressState>()(
         module5: false,
         module6: false,
       },
+      quizScores: {},
+      setQuizScore: (moduleId, score) =>
+        set((state) => ({
+          quizScores: {
+            ...state.quizScores,
+            [moduleId]: score,
+          },
+        })),
       markModuleCompleted: (moduleId) =>
         set((state) => ({
           modulesCompleted: {
@@ -42,6 +52,7 @@ export const useProgressStore = create<ProgressState>()(
             module5: false,
             module6: false,
           },
+          quizScores: {},
         }),
     }),
     {

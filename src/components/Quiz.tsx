@@ -9,12 +9,14 @@ interface Question {
 }
 
 interface QuizProps {
+  id: string;
   title: string;
   description: string;
   questions: Question[];
+  onComplete?: (score: number) => void;
 }
 
-export default function Quiz({ title, description, questions }: QuizProps) {
+export default function Quiz({ id, title, description, questions, onComplete }: QuizProps) {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [isChecking, setIsChecking] = useState(false);
 
@@ -25,6 +27,13 @@ export default function Quiz({ title, description, questions }: QuizProps) {
 
   const checkAnswers = () => {
     setIsChecking(true);
+    let count = 0;
+    questions.forEach(q => {
+      if (answers[q.id] === q.correctAnswer) count++;
+    });
+    if (onComplete) {
+      onComplete(count);
+    }
   };
 
   const reset = () => {

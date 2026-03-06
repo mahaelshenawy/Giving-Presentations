@@ -3,6 +3,7 @@ import ModuleLayout from '../components/ModuleLayout';
 import Flashcards from '../components/Flashcards';
 import GraphDescription from '../components/GraphDescription';
 import Quiz from '../components/Quiz';
+import { useProgressStore } from '../store/useProgress';
 
 const trendCards = [
   { id: '1', front: 'to increase', back: 'to go up / to rise', category: 'Upward Trend' },
@@ -16,6 +17,7 @@ const trendCards = [
 ];
 
 export default function Module4() {
+  const { setQuizScore } = useProgressStore();
   return (
     <ModuleLayout
       id="module4"
@@ -73,8 +75,10 @@ export default function Module4() {
       />
 
       <Quiz 
+        id="module4"
         title="Check Your Knowledge: Module 4"
         description="Test your vocabulary for describing trends and visuals."
+        onComplete={(score) => setQuizScore('module4', score)}
         questions={[
           {
             id: 'm4-q1',

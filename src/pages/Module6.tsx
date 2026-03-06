@@ -2,6 +2,7 @@ import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import QASimulation from '../components/QASimulation';
 import Quiz from '../components/Quiz';
+import { useProgressStore } from '../store/useProgress';
 
 const qaScenarios = [
   {
@@ -43,6 +44,7 @@ const qaScenarios = [
 ];
 
 export default function Module6() {
+  const { setQuizScore } = useProgressStore();
   return (
     <ModuleLayout
       id="module6"
@@ -108,8 +110,10 @@ export default function Module6() {
       />
 
       <Quiz 
+        id="module6"
         title="Check Your Knowledge: Module 6"
         description="Test your strategies for handling the Q&A session."
+        onComplete={(score) => setQuizScore('module6', score)}
         questions={[
           {
             id: 'm6-q1',
