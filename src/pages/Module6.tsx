@@ -1,6 +1,7 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import QASimulation from '../components/QASimulation';
+import Quiz from '../components/Quiz';
 
 const qaScenarios = [
   {
