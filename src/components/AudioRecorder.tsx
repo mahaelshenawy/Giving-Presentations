@@ -8,6 +8,7 @@ export default function AudioRecorder({ prompt }: { prompt: string }) {
   const audioChunksRef = useRef<Blob[]>([]);
 
   const [selectedScore, setSelectedScore] = useState<number | null>(null);
+  const [showFeedback, setShowFeedback] = useState(false);
 
   const startRecording = async () => {
     try {
@@ -113,7 +114,10 @@ export default function AudioRecorder({ prompt }: { prompt: string }) {
                   {[1, 2, 3, 4, 5].map((s) => (
                     <button 
                       key={s} 
-                      onClick={() => setSelectedScore(s)}
+                      onClick={() => {
+                        setSelectedScore(s);
+                        setShowFeedback(true);
+                      }}
                       className={`w-6 h-6 rounded-md border transition-all text-xs font-bold ${
                         selectedScore === s
                           ? 'bg-indigo-600 border-indigo-600 text-white'
@@ -125,6 +129,21 @@ export default function AudioRecorder({ prompt }: { prompt: string }) {
                   ))}
                 </div>
               </div>
+
+              {showFeedback && selectedScore && (
+                <div className="mt-4 p-4 bg-white rounded-xl border border-indigo-100 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <p className="text-sm font-bold text-indigo-700 mb-1">
+                    {selectedScore >= 4 ? 'Excellent Performance!' : selectedScore >= 3 ? 'Good Effort!' : 'Keep Practicing!'}
+                  </p>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {selectedScore >= 4 
+                      ? "Your delivery sounds professional and confident. You've clearly mastered the WISE flow structure. Try to maintain this level of energy in your real presentation!"
+                      : selectedScore >= 3 
+                        ? "You have the right structure. To improve, try to focus on your 'Eye Contact' (imagine the camera is your audience) and slowing down even more during the 'Say Topic' section."
+                        : "Focus on the WISE structure first. Try writing down your script and reading it aloud a few times before recording again. You'll get there!"}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         )}
