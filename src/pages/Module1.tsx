@@ -27,6 +27,16 @@ export default function Module1() {
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+          <div className="relative group overflow-hidden rounded-3xl mb-8">
+            <img 
+              src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000" 
+              alt="Public speaking" 
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex items-end p-6">
+              <p className="text-white font-medium">Confidence starts with a strong opening.</p>
+            </div>
+          </div>
           <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
             <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center text-xs">W</span>

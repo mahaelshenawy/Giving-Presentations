@@ -25,6 +25,20 @@ export default function Module2() {
           Your body language speaks volumes before you even say a word. Here are some key tips:
         </p>
         
+        <div className="relative rounded-3xl overflow-hidden mb-12 h-80 group">
+          <img 
+            src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&q=80&w=1000" 
+            alt="Body language" 
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent flex items-center p-12">
+            <div className="max-w-md">
+              <h3 className="text-white text-3xl font-bold mb-4">Non-Verbal Communication</h3>
+              <p className="text-slate-200">Over 70% of communication is non-verbal. Your posture and eye contact speak before you do.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
             <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
