@@ -1,7 +1,10 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import Quiz from '../components/Quiz';
+import { useProgressStore } from '../store/useProgress';
 
 export default function Module0() {
+  const { setQuizScore } = useProgressStore();
   return (
     <ModuleLayout
       id="module0"
@@ -67,6 +70,93 @@ export default function Module0() {
           </div>
         </div>
       </section>
+
+      <Quiz
+        id="module0"
+        title="Check Your Knowledge: Introduction"
+        description="Test your understanding of the 5 key stages covered in the video."
+        onComplete={(score) => setQuizScore('module0', score)}
+        questions={[
+          {
+            id: 'm0-q1',
+            question: "What does the WISE flow stand for?",
+            options: [
+              'Welcome, Introduce, Say, Explain',
+              'Write, Inform, Speak, Engage',
+              'Welcome, Inspire, Summarize, End',
+              'Watch, Introduce, Speak, Explain'
+            ],
+            correctAnswer: 0
+          },
+          {
+            id: 'm0-q2',
+            question: "Which of the following is NOT mentioned as a way to hook your audience at the start?",
+            options: [
+              'Ask a question',
+              'Share a statistic',
+              'Read directly from your slides',
+              'Tell a story'
+            ],
+            correctAnswer: 2
+          },
+          {
+            id: 'm0-q3',
+            question: "What is the purpose of 'signposting' in a presentation?",
+            options: [
+              'To decorate your slides with visual signs',
+              'To guide the audience through the structure of your talk',
+              'To signal that the presentation is over',
+              'To point at the screen during your talk'
+            ],
+            correctAnswer: 1
+          },
+          {
+            id: 'm0-q4',
+            question: "According to the video, which type of visual is best for comparing data?",
+            options: [
+              'Flowcharts',
+              'Photographs',
+              'Bar charts',
+              'Word clouds'
+            ],
+            correctAnswer: 2
+          },
+          {
+            id: 'm0-q5',
+            question: "What is the 'sandwich' technique for concluding a presentation?",
+            options: [
+              'Serving food during the conclusion to keep the audience engaged',
+              'Placing the most important data between two less important points',
+              'Tying the conclusion back to something from the introduction',
+              'Breaking the conclusion into three equal layers'
+            ],
+            correctAnswer: 2
+          },
+          {
+            id: 'm0-q6',
+            question: "True or False: If you receive a tough question and don't know the answer, you should make up a response to maintain credibility.",
+            options: ['True', 'False'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm0-q7',
+            question: "How many key stages for mastering a presentation are covered in the video?",
+            options: ['3', '4', '5', '6'],
+            correctAnswer: 2
+          },
+          {
+            id: 'm0-q8',
+            question: "Which of the following is a recommended way to finish a presentation strongly?",
+            options: [
+              'Apologize for taking too long',
+              'Introduce new data that wasn\'t covered',
+              'End with a memorable quote or question',
+              'Simply stop talking and sit down'
+            ],
+            correctAnswer: 2
+          }
+        ]}
+      />
     </ModuleLayout>
   );
 }

@@ -25,8 +25,7 @@ export default function ModuleLayout({
   const navigate = useNavigate();
   const isCompleted = modulesCompleted[id as keyof typeof modulesCompleted];
   
-  // Module 0 is the welcome module, it doesn't have a quiz
-  const requiresQuiz = id !== 'module0';
+  const requiresQuiz = true;
   const lastScore = quizScores[id];
   const hasAttemptedQuiz = lastScore !== undefined;
   

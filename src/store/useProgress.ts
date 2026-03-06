@@ -3,7 +3,6 @@ import { persist } from 'zustand/middleware';
 
 interface ProgressState {
   userName: string;
-  setUserName: (name: string) => void;
   modulesCompleted: Record<string, boolean>;
   quizScores: Record<string, number>;
   completionDate?: string;
