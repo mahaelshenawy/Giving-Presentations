@@ -71,8 +71,8 @@ export default function ModuleLayout({
           <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             {hasAttemptedQuiz 
-              ? `You scored ${Math.round(lastScore * 100)}%. You need at least 80% to complete this module.`
-              : "Please complete the quiz at the bottom of the page (score 80%+) to unlock completion."}
+              ? `You scored ${Math.round(lastScore * 100)}%. You need at least 80% on the final assessment slide to complete this module.`
+              : "Please complete the assessment on the final slide (score 80%+) to unlock completion."}
           </div>
         )}
         
