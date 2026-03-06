@@ -93,7 +93,7 @@ export default function Layout() {
           </Link>
           
           <div className="pt-4 pb-2">
-            <p className="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Modules</p>
+            <p className="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Topics</p>
           </div>
           
           {modules.map((mod) => {

@@ -126,7 +126,7 @@ export default function Dashboard() {
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
-                {isCompleted ? 'Review Module' : isNext ? 'Start Module' : 'View Module'}
+                {isCompleted ? 'Review Topic' : isNext ? 'Start Topic' : 'View Topic'}
                 {!isCompleted && <PlayCircle className="w-4 h-4" />}
               </button>
             </div>
