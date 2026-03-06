@@ -32,20 +32,15 @@ function selectBestVoice(): SpeechSynthesisVoice | null {
   const englishVoices = voices.filter(v => v.lang.startsWith('en'));
 
   const premiumPatterns = [
-    'Kore',
     'Karen',
-    'Samantha',
     'Google UK English Female',
-    'Google UK English Male',
-    'Google US English',
-    'Microsoft Aria',
-    'Microsoft Jenny',
-    'Microsoft Guy',
-    'Microsoft Zira',
-    'Daniel',
+    'Samantha',
+    'Victoria',
     'Moira',
     'Tessa',
     'Fiona',
+    'Microsoft Aria',
+    'Microsoft Jenny',
   ];
 
   for (const pattern of premiumPatterns) {
