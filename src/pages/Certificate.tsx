@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useProgressStore } from '../store/useProgress';
-import { Navigate } from 'react-router-dom';
-import { Download, Award, ShieldCheck, Globe } from 'lucide-react';
+import { Download, Award, ShieldCheck, Globe, Loader2 } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { motion } from 'motion/react';
@@ -9,6 +8,7 @@ import { motion } from 'motion/react';
 export default function Certificate() {
   const { userName, modulesCompleted, completionDate } = useProgressStore();
   const certificateRef = useRef<HTMLDivElement>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const isFullyCompleted = Object.values(modulesCompleted).every(Boolean);
 
@@ -25,44 +25,43 @@ export default function Certificate() {
   }
 
   const handleDownload = async () => {
-    if (!certificateRef.current) return;
+    if (!certificateRef.current || isDownloading) return;
+    setIsDownloading(true);
     
     try {
-      // Small delay to ensure all DOM elements and icons (Lucide) are fully rendered
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      const element = document.querySelector('[data-certificate="true"]') as HTMLElement;
-      if (!element) {
-        console.error('Certificate element not found');
-        return;
-      }
+      const element = certificateRef.current;
+
+      const svgs = element.querySelectorAll('svg');
+      svgs.forEach((svg) => {
+        svg.setAttribute('width', svg.getBoundingClientRect().width.toString());
+        svg.setAttribute('height', svg.getBoundingClientRect().height.toString());
+      });
 
       const canvas = await html2canvas(element, {
         scale: 2,
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#ffffff',
-        logging: true, // Enable logging for debugging if it fails
-        width: 1000,
-        height: 700,
-        windowWidth: 1200,
-        x: 0,
-        y: 0,
-        scrollX: 0,
-        scrollY: 0
+        logging: false,
       });
       
-      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = canvas.width;
+      const pdfHeight = canvas.height;
+      
       const pdf = new jsPDF({
         orientation: 'landscape',
         unit: 'px',
-        format: [1000, 700]
+        format: [pdfWidth, pdfHeight]
       });
       
-      pdf.addImage(imgData, 'JPEG', 0, 0, 1000, 700);
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       pdf.save(`${userName.replace(/\s+/g, '_')}_Presentations_Mastery_Certificate.pdf`);
     } catch (error) {
-      console.error('Error generating PDF', error);
+      console.error('Error generating PDF:', error);
+      alert('There was an error generating the PDF. Please try again.');
+    } finally {
+      setIsDownloading(false);
     }
   };
 
@@ -79,31 +78,26 @@ export default function Certificate() {
         </div>
         <button
           onClick={handleDownload}
-          className="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-xl hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-lg hover:shadow-indigo-200 active:scale-95"
+          disabled={isDownloading}
+          className="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-xl hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-lg hover:shadow-indigo-200 active:scale-95 disabled:opacity-70 disabled:cursor-wait"
         >
-          <Download className="w-5 h-5" /> Download High-Res PDF
+          {isDownloading ? (
+            <><Loader2 className="w-5 h-5 animate-spin" /> Generating...</>
+          ) : (
+            <><Download className="w-5 h-5" /> Download High-Res PDF</>
+          )}
         </button>
       </div>
 
-      {/* Certificate Container for PDF generation */}
       <div className="overflow-x-auto pb-12">
         <div 
           ref={certificateRef}
-          className="relative bg-white w-[1000px] h-[700px] mx-auto border-[24px] border-double border-indigo-900 p-16 flex flex-col items-center justify-between text-center shadow-2xl overflow-hidden"
-          data-certificate="true"
+          className="relative bg-white w-[1000px] h-[700px] mx-auto p-16 flex flex-col items-center justify-between text-center shadow-2xl overflow-hidden"
           style={{
-            backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-            boxSizing: 'border-box'
+            background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            border: '24px double #312e81'
           }}
         >
-          {/* Elegant background watermark pattern */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none pointer-events-none select-none flex flex-wrap justify-center content-center gap-20 rotate-[-15deg]">
-             {Array.from({length: 20}).map((_, i) => (
-               <Award key={i} size={120} />
-             ))}
-          </div>
-
-          {/* Decorative Corner Borders */}
           <div className="absolute top-4 left-4 w-40 h-40 border-t-4 border-l-4 border-indigo-200"></div>
           <div className="absolute top-4 right-4 w-40 h-40 border-t-4 border-r-4 border-indigo-200"></div>
           <div className="absolute bottom-4 left-4 w-40 h-40 border-b-4 border-l-4 border-indigo-200"></div>
