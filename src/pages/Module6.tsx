@@ -1,8 +1,11 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import ModuleAudio from '../components/ModuleAudio';
 import QASimulation from '../components/QASimulation';
 import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
+
+const MODULE_6_NARRATION = `Welcome to the final section of this lesson! Here you'll learn how to handle the question and answer session — often the most unpredictable part of any presentation. The key to a successful Q and A is following the four-step process. Step one: Listen carefully to the question. Don't interrupt the person asking. Step two: Understand the question fully. If needed, paraphrase it back by saying "If I understood you correctly, you would like to know..." Step three: Communicate your answer clearly and concisely. Address the whole audience, not just the person who asked. Step four: Check that you've answered satisfactorily. Now let's talk about handling difficult situations. For clarifying questions, you can say "Could you repeat your question, please?" or paraphrase it to confirm understanding. If you don't know the answer, be honest. Say "I'm afraid I don't know that off the top of my head, but I'll find out for you." Never guess — if you're wrong, you lose credibility. For postponing questions that come too early, say "If you don't mind, I'll deal with this question later in my presentation." And for hostile or aggressive questions, the best technique is to reformulate them into neutral terms. For example, if someone asks "Isn't there a better solution?", rephrase it as "You're asking whether our current approach is the most effective option. Yes, because..." This takes the emotion out of the question and lets you answer professionally.`;
 
 const qaScenarios = [
   {
@@ -52,6 +55,7 @@ export default function Module6() {
       description="Learn strategies for handling the Q&A session, dealing with difficult questions, and maintaining control."
       prevModule="/module/5"
     >
+      <ModuleAudio moduleId="module6" narration={MODULE_6_NARRATION} />
       <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
         <img 
           src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000" 

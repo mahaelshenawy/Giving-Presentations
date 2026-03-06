@@ -1,8 +1,11 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import ModuleAudio from '../components/ModuleAudio';
 import Quiz from '../components/Quiz';
 import VisualDesignChallenge from '../components/VisualDesignChallenge';
 import { useProgressStore } from '../store/useProgress';
+
+const MODULE_3_NARRATION = `This section teaches you how to use presentation tools effectively and present numbers clearly. First, let's learn the Rule of Six. This rule helps you avoid overloading your slides with too much information. It means: a maximum of six lines per slide, and a maximum of six words per line. If you follow this rule, your slides will be clean and easy to read. Next, let's talk about saying numbers correctly. Numbers can be tricky for your audience, so here are some important rules. For decimals, use the word "point" — seven point two, not seven comma two. For currency, say "one hundred and fifty thousand euros." And remember the No S Rule: never add an S to hundred, million, or billion when a specific number comes before them. Say "two million dollars," not "two millions dollars." It's also better to use approximate numbers in presentations because they're easier for the audience to remember. Use phrases like "just under" or "nearly" for slightly less, "about," "approximately," or "roughly" for about the same, and "just over" or "well over" for slightly more. For example, instead of saying "ninety thousand and eighty-three mobile phones," say "just over ninety thousand mobile phones." Finally, when presenting visuals, use emphasis phrases like "I'd like to stress the following point" or "I'd like to draw your attention to" to highlight key data.`;
 
 const numberQuestions = [
   {
@@ -62,6 +65,7 @@ export default function Module3() {
       prevModule="/module/2"
       nextModule="/module/4"
     >
+      <ModuleAudio moduleId="module3" narration={MODULE_3_NARRATION} />
       <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
         <img 
           src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 

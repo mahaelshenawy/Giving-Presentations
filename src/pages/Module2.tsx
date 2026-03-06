@@ -1,8 +1,11 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import ModuleAudio from '../components/ModuleAudio';
 import MatchingExercise from '../components/MatchingExercise';
 import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
+
+const MODULE_2_NARRATION = `This section covers two essential skills: body language and signposting. Let's start with body language. Over seventy percent of communication is non-verbal, which means your posture, gestures, and eye contact are incredibly important. Here are the key rules: stand straight but relaxed, and keep your knees unlocked. Use open hand gestures and avoid crossing your arms or hiding your hands in your pockets. Make eye contact with individual people in the audience, not just the back wall. And here's an important tip — speak about twenty percent more slowly than your normal conversational speed. This gives the audience time to absorb your words. Now let's talk about signposting. Signposting phrases act like road signs that guide your audience through the presentation. They tell people what's coming next, when a section is finished, and how different parts connect. For example, use phrases like "In this part of my presentation, I'd like to tell you about" to introduce what's coming. Say "This leads directly to my next point" when moving on. Use "As I mentioned before" to refer back to something. And say "Let me briefly summarize what I've said so far" to recap. This section also covers handling difficult issues. Use verbs like identify, clarify, tackle, solve, and take care of when discussing problems. For example, "We first need to identify the problem, then we can tackle it before it impacts our business."`;
 
 const signpostingItems = [
   { id: '1', left: 'In this part of my presentation, I\'d like to tell you about...', right: 'Saying what is coming' },
@@ -22,6 +25,7 @@ export default function Module2() {
       prevModule="/module/1"
       nextModule="/module/3"
     >
+      <ModuleAudio moduleId="module2" narration={MODULE_2_NARRATION} />
       <section className="prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">Body Language</h2>
         <p className="text-slate-600 mb-6">

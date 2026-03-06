@@ -1,10 +1,13 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import ModuleAudio from '../components/ModuleAudio';
 import DragAndDrop from '../components/DragAndDrop';
 import AudioRecorder from '../components/AudioRecorder';
 import InteractiveHook from '../components/InteractiveHook';
 import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
+
+const MODULE_1_NARRATION = `In this section, you'll learn how to open a presentation with confidence. The key framework is called the WISE flow. W stands for Welcome — greet your audience warmly. For example, say "Good morning, ladies and gentlemen. Thank you all for being here today." I stands for Introduce — tell them who you are and your role. S stands for Say your topic — clearly state what you'll be talking about. And E stands for Explain the relevance — tell the audience why this matters to them. To capture attention in the first few seconds, you can use four powerful techniques: ask a rhetorical question, share a surprising statistic, tell a short story, or give the audience a problem to think about. For example, you might say "Did you know that fast food consumption has increased by 600 percent in Europe since 2002?" This section also covers dealing with nervousness. The key tips are: prepare well, because failing to prepare is preparing to fail. Learn to relax with breathing exercises. Arrive early to check the room and equipment. Greet people as they arrive to build rapport. And finally, visualize yourself speaking confidently. Remember, a strong opening sets the tone for your entire presentation.`;
 
 const wiseItems = [
   { id: 'w', content: 'Welcome the audience (e.g., "Good morning, ladies and gentlemen.")', correctIndex: 0 },
@@ -23,6 +26,7 @@ export default function Module1() {
       prevModule="/module/0"
       nextModule="/module/2"
     >
+      <ModuleAudio moduleId="module1" narration={MODULE_1_NARRATION} />
       <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
         <img 
           src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000" 

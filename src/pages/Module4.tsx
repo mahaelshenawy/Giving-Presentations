@@ -1,9 +1,12 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import ModuleAudio from '../components/ModuleAudio';
 import Flashcards from '../components/Flashcards';
 import GraphDescription from '../components/GraphDescription';
 import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
+
+const MODULE_4_NARRATION = `In this section, you'll learn how to describe graphs, charts, and trends using professional English. When introducing a visual, always tell your audience what they're looking at. Use phrases like "Let's look at this bar chart which shows our quarterly sales." Explain the axes: "The vertical axis represents revenue, while the horizontal axis shows the time period." To describe trends, you have two grammar patterns. First, Verb plus Adverb — for example, "Sales increased sharply" or "Profits declined steadily." Second, Adjective plus Noun — "There was a sharp increase in sales" or "We saw a steady decline in profits." Here's the key vocabulary you need. For upward trends, use: increase, rise, go up, grow, or peak. For downward trends: decrease, fall, decline, go down, or hit a low. For changing trends: fluctuate, which means to go up and down. And for no change: remain stable or stay the same. You also need adverbs to describe the speed or degree of change. "Sharply" means quickly and suddenly. "Steadily" means gradually and continuously. "Slightly" means by a small amount. And "dramatically" means by a very large amount. When highlighting key information on a graph, say "I'd like to draw your attention to this sharp increase here" or "As you can see, the overall trend is positive."`;
 
 const trendCards = [
   { id: '1', front: 'to increase', back: 'to go up / to rise', category: 'Upward Trend' },
@@ -26,6 +29,7 @@ export default function Module4() {
       prevModule="/module/3"
       nextModule="/module/5"
     >
+      <ModuleAudio moduleId="module4" narration={MODULE_4_NARRATION} />
       <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
         <img 
           src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000" 

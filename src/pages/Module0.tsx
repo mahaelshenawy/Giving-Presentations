@@ -1,7 +1,10 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
+import ModuleAudio from '../components/ModuleAudio';
 import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
+
+const MODULE_0_NARRATION = `Welcome to Presentations Mastery! This is your introductory module. Before we begin learning the specific language and techniques you'll need, please take a moment to watch the video below. It covers the five essential steps for mastering any presentation. I recommend taking notes as you watch, because you'll be answering questions about the content afterwards. The five stages are: starting strong, guiding your audience, using visuals effectively, finishing strong, and mastering the question and answer session. Take your time with the video, and when you're ready, scroll down to complete the quiz. Good luck!`;
 
 export default function Module0() {
   const { setQuizScore } = useProgressStore();
@@ -12,6 +15,7 @@ export default function Module0() {
       description="Watch this introductory video to learn the 5 essential steps for mastering any presentation."
       nextModule="/module/1"
     >
+      <ModuleAudio moduleId="module0" narration={MODULE_0_NARRATION} />
       <section className="prose prose-slate max-w-none mb-8">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">5 Steps to Mastery</h2>
         <p className="text-slate-600 mb-6">

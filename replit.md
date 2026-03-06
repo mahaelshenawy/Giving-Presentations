@@ -20,9 +20,13 @@ src/
   main.tsx          - Entry point
   index.css         - Global styles
   components/       - Reusable UI components
+    ModuleAudio.tsx  - Audio narration using Web Speech API (auto-plays first visit)
+    ModuleLayout.tsx - Module wrapper with quiz gate (80% pass required)
+    Quiz.tsx         - Quiz component (score normalized 0-1)
   pages/            - Module pages (Module0-6, Dashboard, Certificate)
-  store/            - Zustand state management
+  store/            - Zustand state management (includes completionDate, quizScores)
 public/             - Static assets
+docs/               - GitHub Pages deployment output
 ```
 
 ## Environment Variables
