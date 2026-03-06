@@ -131,9 +131,9 @@ export default function Certificate() {
 
             <div className="text-center flex flex-col items-center">
               <div className="mb-4 h-12 flex items-end">
-                <p className="font-serif italic text-3xl text-indigo-900">Oxford</p>
+                <p className="font-serif italic text-3xl text-indigo-900">Presentations</p>
               </div>
-              <p className="font-bold text-slate-900 text-lg border-t border-slate-900 pt-1 px-4">Business English</p>
+              <p className="font-bold text-slate-900 text-lg border-t border-slate-900 pt-1 px-4">Mastery Academy</p>
               <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Course Provider</p>
             </div>
           </div>

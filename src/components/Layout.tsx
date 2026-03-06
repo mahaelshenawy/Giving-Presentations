@@ -66,7 +66,6 @@ export default function Layout() {
       )}>
         <div className="p-6 border-b border-slate-200 hidden md:block">
           <h1 className="text-xl font-bold text-indigo-700 tracking-tight">Presentations Mastery</h1>
-          <p className="text-sm text-slate-500 mt-1">Oxford Business English</p>
         </div>
         
         <div className="p-6 border-b border-slate-200 md:hidden flex justify-between items-center">
