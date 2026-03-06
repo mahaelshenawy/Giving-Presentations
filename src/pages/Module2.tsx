@@ -68,11 +68,34 @@ export default function Module2() {
         </div>
       </section>
 
-      <section className="prose prose-slate max-w-none mt-12">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Signposting</h2>
+      <section className="prose prose-slate max-w-none mt-12 mb-8">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">Signposting & Handling Issues</h2>
         <p className="text-slate-600 mb-6">
           Signposting phrases help guide the audience through a presentation, acting like road signs. They tell the audience what is coming next, when a topic is finished, and how different parts connect.
         </p>
+
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6 mb-8">
+          <div>
+            <h4 className="font-bold text-slate-900 mb-3">Speaker Script Examples</h4>
+            <div className="space-y-4">
+              <div>
+                <h5 className="font-bold text-sm text-slate-700 mb-1">Signposting Phrases</h5>
+                <ul className="list-disc pl-5 space-y-1 text-sm text-slate-600">
+                  <li><strong>Moving to the next point:</strong> I'd now like to turn to the issue of [Topic].</li>
+                  <li><strong>Referring back:</strong> As I mentioned before, our budget for this year is limited.</li>
+                  <li><strong>Summarizing a point:</strong> Let me briefly summarize what I've said so far.</li>
+                  <li><strong>Adding ideas:</strong> Moreover, there are other interesting facts we should look at. In addition to this, our IT business is performing well.</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-bold text-sm text-slate-700 mb-1">Handling Difficult Issues</h5>
+                <p className="text-sm text-slate-600 italic">
+                  To begin, I think we first need to <strong>identify</strong> the problem regarding our recent supply delays. Of course, we'll have to <strong>clarify</strong> a few points regarding our vendor contracts before we start. However, if we <strong>tackle</strong> the distribution problems now, we can <strong>solve</strong> this issue before it impacts our Christmas business. We must <strong>take care of</strong> this problem immediately to avoid serious trouble.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <MatchingExercise 

@@ -59,17 +59,33 @@ export default function Module6() {
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <h4 className="font-bold text-slate-900 mb-2">Clarifying & Admitting</h4>
             <ul className="space-y-3 text-sm text-slate-600">
-              <li><strong>Clarifying:</strong> "If I understood you correctly, you would like to know..."</li>
-              <li><strong>Admitting you don't know:</strong> "I'm afraid I don't know that off the top of my head, but I'll try to find out for you."</li>
+              <li><strong>Clarifying:</strong> "If I understood you correctly, you would like to know..." or "Could you repeat your question, please?"</li>
+              <li><strong>Admitting you don't know:</strong> "I'm afraid I don't know that off the top of my head, but I'll try to find out for you." or "I'm afraid I'm not the right person to answer that."</li>
             </ul>
           </div>
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <h4 className="font-bold text-slate-900 mb-2">Postponing & Reformulating</h4>
             <ul className="space-y-3 text-sm text-slate-600">
-              <li><strong>Postponing:</strong> "Perhaps we could go over this after the presentation."</li>
-              <li><strong>Reformulating (Hostile):</strong> Change "Isn't there a better solution?" to "What would be a better solution?"</li>
+              <li><strong>Postponing:</strong> "Perhaps we could go over this after the presentation." or "If you don't mind, I'll deal with this question later in my presentation."</li>
+              <li><strong>Reformulating (Hostile):</strong> Change "Isn't there a better solution?" to "What would be a better solution?" or "You're asking whether..."</li>
             </ul>
           </div>
+        </div>
+
+        <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 mb-8">
+          <h4 className="font-bold text-amber-900 mb-4">Coaching Notes: The Q&A Process</h4>
+          <ol className="list-decimal pl-5 space-y-2 text-sm text-amber-800 mb-4">
+            <li><strong>Listen:</strong> Pay close attention to the questioner. Don't interrupt.</li>
+            <li><strong>Understand:</strong> Ensure you understand the question before answering. Paraphrase if necessary.</li>
+            <li><strong>Communicate:</strong> Answer clearly and concisely. Address the whole audience, not just the questioner.</li>
+            <li><strong>Check:</strong> Briefly confirm that you have answered the question satisfactorily.</li>
+          </ol>
+          <h5 className="font-bold text-sm text-amber-900 mb-2">Handling Difficult Questions</h5>
+          <ul className="list-disc pl-5 space-y-1 text-sm text-amber-800">
+            <li><strong>Hostile questions:</strong> Reformulate them into neutral terms before answering.</li>
+            <li><strong>Questions you can't answer:</strong> Be honest. Offer to find out or direct them to someone who knows.</li>
+            <li><strong>Off-topic questions:</strong> Politely suggest discussing them after the presentation.</li>
+          </ul>
         </div>
       </section>
 

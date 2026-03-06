@@ -54,15 +54,37 @@ export default function Module5() {
 
       <section className="prose prose-slate max-w-none mt-12 mb-8">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">Strategic Closing Moves</h2>
-        <p className="text-slate-600">
+        <p className="text-slate-600 mb-6">
           To make a lasting impression, consider using one of these techniques for your final statement:
         </p>
-        <ul className="space-y-2 text-slate-600 list-disc pl-5">
-          <li><strong>Use a question:</strong> Engage the audience with a thought-provoking inquiry.</li>
-          <li><strong>Quote a well-known person:</strong> Borrow credibility by referencing a respected figure.</li>
-          <li><strong>Call to action:</strong> Clearly state the specific steps you want them to take next.</li>
-          <li><strong>The 'sandwich' technique:</strong> Refer back to a story or anecdote you told at the beginning.</li>
-        </ul>
+
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6 mb-8">
+          <h4 className="font-bold text-slate-900 mb-3">Speaker Script Examples</h4>
+          <div>
+            <h5 className="font-bold text-sm text-slate-700 mb-1">Signaling the End and Summarizing</h5>
+            <p className="text-sm text-slate-600 italic">I'm now nearing the end of my talk. Before I stop, let me go through my main points again. To sum up then, we have looked at the current status, the problems with suppliers, and the progress made since January.</p>
+          </div>
+          <div>
+            <h5 className="font-bold text-sm text-slate-700 mb-1">Recommendation and Final Statement</h5>
+            <p className="text-sm text-slate-600 italic">Based on what we know, we therefore <strong>suggest</strong> optimizing our procedures. In my opinion, we should go ahead with the project. As a final point, I'd like to leave you with this thought: knowing your entire product range is the key to success. Thank you all for listening.</p>
+          </div>
+        </div>
+
+        <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 mb-8">
+          <h4 className="font-bold text-amber-900 mb-4">Coaching Notes: The Sandwich Technique</h4>
+          <p className="text-amber-800 mb-3 text-sm">Think of your presentation as a sandwich:</p>
+          <ul className="list-disc pl-5 space-y-1 text-sm text-amber-800 mb-4">
+            <li><strong>The Bread:</strong> The Introduction and Conclusion (these should connect via a shared theme or story).</li>
+            <li><strong>The Filling:</strong> The Main Body (your data and technical details).</li>
+          </ul>
+          <h5 className="font-bold text-sm text-amber-900 mb-2">Effective Conclusion Techniques</h5>
+          <ul className="list-decimal pl-5 space-y-2 text-sm text-amber-800">
+            <li><strong>Use a quote:</strong> "To put it in the words of Albert Einstein: 'The important thing is not to stop questioning.'"</li>
+            <li><strong>Ask a provocative question:</strong> "After all, isn't that why we're here?"</li>
+            <li><strong>Call to action:</strong> "So that's the plan. Now let's go and put it into practice!"</li>
+            <li><strong>Refer back to the beginning:</strong> "Remember the story I told you earlier about Paris..."</li>
+          </ul>
+        </div>
       </section>
 
       <ConclusionBuilder 
