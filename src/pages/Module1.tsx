@@ -3,6 +3,7 @@ import ModuleLayout from '../components/ModuleLayout';
 import DragAndDrop from '../components/DragAndDrop';
 import AudioRecorder from '../components/AudioRecorder';
 import InteractiveHook from '../components/InteractiveHook';
+import Quiz from '../components/Quiz';
 
 const wiseItems = [
   { id: 'w', content: 'Welcome the audience (e.g., "Good morning, ladies and gentlemen.")', correctIndex: 0 },
@@ -126,6 +127,31 @@ export default function Module1() {
 
       <AudioRecorder 
         prompt="Record yourself opening a presentation using the WISE flow. Imagine you are introducing a new software tool to your colleagues."
+      />
+
+      <Quiz 
+        title="Check Your Knowledge: Module 1"
+        description="Test your understanding of the WISE flow and opening techniques."
+        questions={[
+          {
+            id: 'm1-q1',
+            question: "What does the 'S' in the WISE flow stand for?",
+            options: ['Summary', 'Say Topic', 'Start Strong', 'Solution'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm1-q2',
+            question: "True or False: In a formal presentation, you should wait until the end for questions.",
+            options: ['True', 'False'],
+            correctAnswer: 0
+          },
+          {
+            id: 'm1-q3',
+            question: "Complete the phrase: 'My talk is particularly ___ to those of you who work in sales.'",
+            options: ['interesting', 'relevant', 'important', 'useful'],
+            correctAnswer: 1
+          }
+        ]}
       />
     </ModuleLayout>
   );

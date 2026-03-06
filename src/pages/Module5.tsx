@@ -1,6 +1,7 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import ConclusionBuilder from '../components/ConclusionBuilder';
+import Quiz from '../components/Quiz';
 
 export default function Module5() {
   return (
@@ -101,6 +102,31 @@ export default function Module5() {
       <ConclusionBuilder 
         title="Exercise 5: Build Your Conclusion"
         description="Write a complete conclusion for a presentation about a new product launch. Fill in each section using appropriate phrases."
+      />
+
+      <Quiz 
+        title="Check Your Knowledge: Module 5"
+        description="Test your understanding of effective conclusions."
+        questions={[
+          {
+            id: 'm5-q1',
+            question: "What is the very first step of a strong conclusion?",
+            options: ['Summarize points', 'Signal the end', 'Invite questions', 'Make a recommendation'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm5-q2',
+            question: "True or False: You should introduce new data or technical details in the conclusion.",
+            options: ['True', 'False'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm5-q3',
+            question: "What is the 'Bread' in the Sandwich Technique?",
+            options: ['The Main Body', 'The Data', 'The Introduction and Conclusion', 'The Slides'],
+            correctAnswer: 2
+          }
+        ]}
       />
     </ModuleLayout>
   );

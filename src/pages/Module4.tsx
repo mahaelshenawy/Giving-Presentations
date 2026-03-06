@@ -2,6 +2,7 @@ import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import Flashcards from '../components/Flashcards';
 import GraphDescription from '../components/GraphDescription';
+import Quiz from '../components/Quiz';
 
 const trendCards = [
   { id: '1', front: 'to increase', back: 'to go up / to rise', category: 'Upward Trend' },
@@ -69,6 +70,31 @@ export default function Module4() {
         description="Look at the bar chart below and write a short description of the trend it shows. Try to use words like 'increase', 'steadily', or 'rise'."
         graphUrl=""
         keywords={['increase', 'increased', 'rise', 'rose', 'steadily', 'gradually', 'upward', 'trend', 'quarters', 'sales']}
+      />
+
+      <Quiz 
+        title="Check Your Knowledge: Module 4"
+        description="Test your vocabulary for describing trends and visuals."
+        questions={[
+          {
+            id: 'm4-q1',
+            question: "Which word describes a trend that goes up and down?",
+            options: ['Stable', 'Peak', 'Fluctuate', 'Sharp'],
+            correctAnswer: 2
+          },
+          {
+            id: 'm4-q2',
+            question: "True or False: 'Sharply' means the same as 'Gradually'.",
+            options: ['True', 'False'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm4-q3',
+            question: "Complete the sentence: 'There was a ___ increase in sales.'",
+            options: ['steady', 'steadily', 'rose', 'increased'],
+            correctAnswer: 0
+          }
+        ]}
       />
     </ModuleLayout>
   );

@@ -105,6 +105,36 @@ export default function Module6() {
         description="Choose the best response for each audience question or interruption."
         scenarios={qaScenarios}
       />
+
+      <Quiz 
+        title="Check Your Knowledge: Module 6"
+        description="Test your strategies for handling the Q&A session."
+        questions={[
+          {
+            id: 'm6-q1',
+            question: "What is the best way to handle a hostile question?",
+            options: [
+              'Ignore it',
+              'Tell them it is a bad question',
+              'Reformulate it into neutral terms',
+              'Ask them to leave'
+            ],
+            correctAnswer: 2
+          },
+          {
+            id: 'm6-q2',
+            question: "True or False: If you don't know the answer, you should always try to guess.",
+            options: ['True', 'False'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm6-q3',
+            question: "What is the final step in the Q&A Process coaching notes?",
+            options: ['Listen', 'Understand', 'Communicate', 'Check'],
+            correctAnswer: 3
+          }
+        ]}
+      />
     </ModuleLayout>
   );
 }

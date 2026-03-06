@@ -1,6 +1,7 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import MatchingExercise from '../components/MatchingExercise';
+import Quiz from '../components/Quiz';
 
 const signpostingItems = [
   { id: '1', left: 'In this part of my presentation, I\'d like to tell you about...', right: 'Saying what is coming' },
@@ -140,6 +141,36 @@ export default function Module2() {
         title="Exercise 2: Signposting Functions"
         description="Match the signposting phrases on the left with their correct functions on the right. Click a phrase, then click its function."
         items={signpostingItems}
+      />
+
+      <Quiz 
+        title="Check Your Knowledge: Module 2"
+        description="Test your understanding of body language and signposting."
+        questions={[
+          {
+            id: 'm2-q1',
+            question: "How much slower should you speak than your normal conversational speed?",
+            options: ['10%', '20%', '50%', 'Exactly the same'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm2-q2',
+            question: "True or False: Crossing your arms is an 'open gesture' that shows confidence.",
+            options: ['True', 'False'],
+            correctAnswer: 1
+          },
+          {
+            id: 'm2-q3',
+            question: "Which phrase is used for 'referring back'?",
+            options: [
+              "Moving to the next point...",
+              "As I mentioned before...",
+              "In this part of my presentation...",
+              "Let me briefly summarize..."
+            ],
+            correctAnswer: 1
+          }
+        ]}
       />
     </ModuleLayout>
   );

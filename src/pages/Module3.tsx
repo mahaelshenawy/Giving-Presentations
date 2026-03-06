@@ -36,6 +36,18 @@ const numberQuestions = [
       'Nearly 90,000 mobile phones'
     ],
     correctAnswer: 1
+  },
+  {
+    id: 'q4',
+    question: "True or False: The 'Rule of Six' means a maximum of six words per slide.",
+    options: ['True', 'False'],
+    correctAnswer: 1
+  },
+  {
+    id: 'q5',
+    question: "How do you say '7.2'?",
+    options: ['Seven point two', 'Seven comma two', 'Seventy two', 'Seven and two'],
+    correctAnswer: 0
   }
 ];
 
