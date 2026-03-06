@@ -147,7 +147,7 @@ export default function Module2() {
 
       <Quiz 
         id="module2"
-        title="Check Your Knowledge: Module 2"
+        title="Check Your Knowledge: Section 2"
         description="Test your understanding of body language and signposting."
         onComplete={(score) => setQuizScore('module2', score)}
         questions={[

@@ -32,7 +32,7 @@ export default function Dashboard() {
             <Award className="w-8 h-8 text-indigo-600" />
           </div>
           <h1 className="text-2xl font-bold text-slate-900 mb-2">Welcome to Presentations Mastery</h1>
-          <p className="text-slate-600">Please enter your name to begin. <strong>Note:</strong> This name will appear exactly as typed on your official certificate of completion.</p>
+          <p className="text-slate-600">Please enter your name to begin. <strong>Note:</strong> This name will appear exactly as typed on your official certificate of completion of this lesson.</p>
         </div>
         
         <form onSubmit={handleSaveName} className="space-y-4">
@@ -68,12 +68,12 @@ export default function Dashboard() {
       <header className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 tracking-tight mb-2">Welcome back, {userName}!</h1>
-          <p className="text-slate-600 max-w-2xl">Continue your journey to mastering English presentations. You've completed {completedCount} out of {totalModules} modules.</p>
+          <p className="text-slate-600 max-w-2xl">Continue your journey to mastering English presentations. You've completed {completedCount} out of {totalModules} sections of this lesson.</p>
         </div>
         
         <div className="w-full md:w-64 bg-slate-50 p-4 rounded-2xl border border-slate-100">
           <div className="flex justify-between text-sm font-medium mb-2">
-            <span className="text-slate-700">Course Progress</span>
+            <span className="text-slate-700">Lesson Progress</span>
             <span className="text-indigo-600">{progressPercentage}%</span>
           </div>
           <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
@@ -142,7 +142,7 @@ export default function Dashboard() {
         >
           <Award className="w-16 h-16 mx-auto mb-4 text-indigo-200" />
           <h2 className="text-2xl font-bold mb-2">Congratulations!</h2>
-          <p className="text-indigo-100 mb-6 max-w-lg mx-auto">You have successfully completed all modules in the English for Presentations Mastery course.</p>
+          <p className="text-indigo-100 mb-6 max-w-lg mx-auto">You have successfully completed all modules in the English for Presentations Mastery lesson.</p>
           <button
             onClick={() => navigate('/certificate')}
             className="bg-white text-indigo-700 font-bold py-3 px-8 rounded-xl hover:bg-indigo-50 transition-colors shadow-sm"

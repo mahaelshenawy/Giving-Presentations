@@ -19,7 +19,7 @@ export default function Certificate() {
           <Award className="w-10 h-10 text-slate-400" />
         </div>
         <h2 className="text-2xl font-bold text-slate-900 mb-2">Certificate Not Yet Available</h2>
-        <p className="text-slate-600 max-w-md mx-auto">You need to complete all 7 modules to unlock your certificate. Keep going, you can do it!</p>
+        <p className="text-slate-600 max-w-md mx-auto">You need to complete all 7 sections to unlock your certificate. Keep going, you can do it!</p>
       </div>
     );
   }
@@ -106,10 +106,10 @@ export default function Certificate() {
             </h2>
             
             <p className="text-xl text-slate-600 mb-4 max-w-2xl mx-auto leading-relaxed">
-              has demonstrated exceptional proficiency and successfully mastered the curriculum of the professional course
+              has demonstrated exceptional proficiency and successfully mastered the curriculum of the professional
             </p>
             <h3 className="text-3xl font-black text-indigo-900 mb-12 tracking-tight">
-              English for Presentations Mastery
+              English for Presentations Mastery Lesson
             </h3>
           </div>
           
@@ -134,7 +134,7 @@ export default function Certificate() {
                 <p className="font-serif italic text-3xl text-indigo-900">Presentations</p>
               </div>
               <p className="font-bold text-slate-900 text-lg border-t border-slate-900 pt-1 px-4">Mastery Academy</p>
-              <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Course Provider</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Lesson Provider</p>
             </div>
           </div>
         </div>
