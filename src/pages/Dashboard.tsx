@@ -32,7 +32,7 @@ export default function Dashboard() {
             <Award className="w-8 h-8 text-indigo-600" />
           </div>
           <h1 className="text-2xl font-bold text-slate-900 mb-2">Welcome to Presentations Mastery</h1>
-          <p className="text-slate-600">Please enter your name to begin. This name will appear on your certificate of completion.</p>
+          <p className="text-slate-600">Please enter your name to begin. <strong>Note:</strong> This name will appear exactly as typed on your official certificate of completion.</p>
         </div>
         
         <form onSubmit={handleSaveName} className="space-y-4">

@@ -6,6 +6,8 @@ interface ProgressState {
   setUserName: (name: string) => void;
   modulesCompleted: Record<string, boolean>;
   quizScores: Record<string, number>;
+  completionDate?: string;
+  setUserName: (name: string) => void;
   setQuizScore: (moduleId: string, score: number) => void;
   markModuleCompleted: (moduleId: string) => void;
   resetProgress: () => void;
@@ -13,7 +15,7 @@ interface ProgressState {
 
 export const useProgressStore = create<ProgressState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       userName: '',
       setUserName: (name) => set({ userName: name }),
       modulesCompleted: {
@@ -26,6 +28,7 @@ export const useProgressStore = create<ProgressState>()(
         module6: false,
       },
       quizScores: {},
+      completionDate: undefined,
       setQuizScore: (moduleId, score) =>
         set((state) => ({
           quizScores: {
@@ -34,12 +37,23 @@ export const useProgressStore = create<ProgressState>()(
           },
         })),
       markModuleCompleted: (moduleId) =>
-        set((state) => ({
-          modulesCompleted: {
+        set((state) => {
+          const newModulesCompleted = {
             ...state.modulesCompleted,
             [moduleId]: true,
-          },
-        })),
+          };
+          
+          // Check if all modules are now completed
+          const allCompleted = Object.values(newModulesCompleted).every(v => v === true);
+          const completionDate = allCompleted && !state.completionDate 
+            ? new Date().toLocaleString() 
+            : state.completionDate;
+
+          return {
+            modulesCompleted: newModulesCompleted,
+            completionDate
+          };
+        }),
       resetProgress: () =>
         set({
           userName: '',
@@ -53,6 +67,7 @@ export const useProgressStore = create<ProgressState>()(
             module6: false,
           },
           quizScores: {},
+          completionDate: undefined,
         }),
     }),
     {
