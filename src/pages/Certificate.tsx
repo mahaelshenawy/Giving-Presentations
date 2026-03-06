@@ -28,20 +28,38 @@ export default function Certificate() {
     if (!certificateRef.current) return;
     
     try {
-      const canvas = await html2canvas(certificateRef.current, {
-        scale: 3,
+      // Small delay to ensure all DOM elements and icons (Lucide) are fully rendered
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      const element = document.querySelector('[data-certificate="true"]') as HTMLElement;
+      if (!element) {
+        console.error('Certificate element not found');
+        return;
+      }
+
+      const canvas = await html2canvas(element, {
+        scale: 2,
         useCORS: true,
-        backgroundColor: '#ffffff'
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        logging: true, // Enable logging for debugging if it fails
+        width: 1000,
+        height: 700,
+        windowWidth: 1200,
+        x: 0,
+        y: 0,
+        scrollX: 0,
+        scrollY: 0
       });
       
-      const imgData = canvas.toDataURL('image/png');
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
       const pdf = new jsPDF({
         orientation: 'landscape',
         unit: 'px',
-        format: [canvas.width, canvas.height]
+        format: [1000, 700]
       });
       
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+      pdf.addImage(imgData, 'JPEG', 0, 0, 1000, 700);
       pdf.save(`${userName.replace(/\s+/g, '_')}_Presentations_Mastery_Certificate.pdf`);
     } catch (error) {
       console.error('Error generating PDF', error);
@@ -72,8 +90,10 @@ export default function Certificate() {
         <div 
           ref={certificateRef}
           className="relative bg-white w-[1000px] h-[700px] mx-auto border-[24px] border-double border-indigo-900 p-16 flex flex-col items-center justify-between text-center shadow-2xl overflow-hidden"
+          data-certificate="true"
           style={{
-            backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)'
+            backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            boxSizing: 'border-box'
           }}
         >
           {/* Elegant background watermark pattern */}
