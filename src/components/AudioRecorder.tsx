@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Mic, Square, Play, RotateCcw } from 'lucide-react';
+import { Mic, Square, Play, RotateCcw, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function AudioRecorder({ prompt }: { prompt: string }) {
   const [isRecording, setIsRecording] = useState(false);
@@ -81,13 +81,38 @@ export default function AudioRecorder({ prompt }: { prompt: string }) {
               </button>
             </div>
             
-            <div className="mt-6 w-full p-4 bg-emerald-50 border border-emerald-100 rounded-xl text-sm text-emerald-800">
-              <p className="font-semibold mb-1">Self-Assessment Checklist:</p>
-              <ul className="list-disc pl-5 space-y-1">
-                <li>Did you speak clearly and at a moderate pace?</li>
-                <li>Did you use appropriate formal/informal language?</li>
-                <li>Did you follow the structure provided?</li>
+            <div className="mt-6 w-full p-6 bg-indigo-50 border border-indigo-100 rounded-xl text-sm">
+              <div className="flex items-center gap-2 text-indigo-700 font-bold mb-3">
+                <Sparkles className="w-4 h-4" />
+                <span>AI Coaching Analysis</span>
+              </div>
+              <p className="text-indigo-900 mb-4">
+                Great job on completing the exercise! While I can't "hear" you, here is what a professional coach would look for in your recording:
+              </p>
+              <ul className="space-y-3">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-indigo-800"><strong>Pacing:</strong> Did you speak about 20% slower than usual? This helps non-native speakers follow you easily.</span>
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-indigo-800"><strong>Energy:</strong> Does your voice sound enthusiastic? High energy at the start builds immediate rapport.</span>
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-indigo-800"><strong>Structure:</strong> Did you hit all 4 WISE points (Welcome, Introduce, Say Topic, Explain)?</span>
+                </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-indigo-100 flex items-center justify-between">
+                <span className="text-xs font-medium text-indigo-500 uppercase tracking-wider">Self-Assessment Score:</span>
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <button key={s} className="w-6 h-6 rounded-md bg-white border border-indigo-200 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors text-xs font-bold">
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         )}
