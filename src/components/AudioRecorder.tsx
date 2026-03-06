@@ -7,6 +7,8 @@ export default function AudioRecorder({ prompt }: { prompt: string }) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
+  const [selectedScore, setSelectedScore] = useState<number | null>(null);
+
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -104,10 +106,20 @@ export default function AudioRecorder({ prompt }: { prompt: string }) {
                 </li>
               </ul>
               <div className="mt-4 pt-4 border-t border-indigo-100 flex items-center justify-between">
-                <span className="text-xs font-medium text-indigo-500 uppercase tracking-wider">Self-Assessment Score:</span>
+                <span className="text-xs font-medium text-indigo-500 uppercase tracking-wider">
+                  {selectedScore ? 'Score Saved!' : 'Self-Assessment Score:'}
+                </span>
                 <div className="flex gap-1">
                   {[1, 2, 3, 4, 5].map((s) => (
-                    <button key={s} className="w-6 h-6 rounded-md bg-white border border-indigo-200 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors text-xs font-bold">
+                    <button 
+                      key={s} 
+                      onClick={() => setSelectedScore(s)}
+                      className={`w-6 h-6 rounded-md border transition-all text-xs font-bold ${
+                        selectedScore === s
+                          ? 'bg-indigo-600 border-indigo-600 text-white'
+                          : 'bg-white border-indigo-200 text-indigo-600 hover:bg-indigo-50'
+                      }`}
+                    >
                       {s}
                     </button>
                   ))}
