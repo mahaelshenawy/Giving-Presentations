@@ -117,10 +117,12 @@ export default function ModuleAudio({ moduleId, narration }: ModuleAudioProps) {
       utterance.pitch = 1.05;
       utterance.volume = 1;
 
+      // Force voice selection every time we speak a new sentence
       const bestVoice = selectBestVoice();
       if (bestVoice) {
         utterance.voice = bestVoice;
-        if (!voiceName) setVoiceName(bestVoice.name);
+        // Update state to show which voice is actually being used
+        setVoiceName(bestVoice.name);
       }
 
       utterance.onend = () => {
