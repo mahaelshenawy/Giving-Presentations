@@ -61,6 +61,17 @@ const module2Slides = [
         </div>
       </div>
     )
+  },
+  {
+    id: 'matching-exercise',
+    title: 'Exercise: Signposting Functions',
+    content: (
+      <MatchingExercise 
+        title="Functions"
+        description="Match phrases on the left with functions on the right."
+        items={signpostingItems}
+      />
+    )
   }
 ];
 
@@ -77,12 +88,6 @@ export default function Module2() {
       <ModuleAudio moduleId="module2" narration={MODULE_2_NARRATION} />
       
       <SlideDeck slides={module2Slides} />
-
-      <MatchingExercise 
-        title="Exercise 2: Signposting Functions"
-        description="Match the signposting phrases on the left with their correct functions on the right."
-        items={signpostingItems}
-      />
 
       <Quiz 
         id="module2"

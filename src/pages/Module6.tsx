@@ -35,6 +35,16 @@ const module6Slides = [
     )
   },
   {
+    id: 'simulator-exercise',
+    title: 'Exercise: Q&A Simulator',
+    content: (
+      <QASimulation 
+        title="Simulator"
+        description="Choose the best response."
+      />
+    )
+  },
+  {
     id: 'difficult',
     title: 'Difficult Questions',
     image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000',
@@ -66,11 +76,6 @@ export default function Module6() {
       <ModuleAudio moduleId="module6" narration={MODULE_6_NARRATION} />
       
       <SlideDeck slides={module6Slides} />
-
-      <QASimulation 
-        title="Exercise 6: Q&A Simulator"
-        description="Choose the best response for audience questions."
-      />
 
       <Quiz 
         id="module6"

@@ -30,6 +30,13 @@ const module3Slides = [
     )
   },
   {
+    id: 'design-challenge',
+    title: 'Visual Design Challenge',
+    content: (
+      <VisualDesignChallenge />
+    )
+  },
+  {
     id: 'numbers',
     title: 'Speaking Numbers',
     image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
@@ -83,8 +90,6 @@ export default function Module3() {
       <ModuleAudio moduleId="module3" narration={MODULE_3_NARRATION} />
       
       <SlideDeck slides={module3Slides} />
-
-      <VisualDesignChallenge />
 
       <Quiz 
         id="module3"

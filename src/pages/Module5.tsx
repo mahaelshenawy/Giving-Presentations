@@ -35,6 +35,16 @@ const module5Slides = [
     )
   },
   {
+    id: 'builder-exercise',
+    title: 'Exercise: Build Your Conclusion',
+    content: (
+      <ConclusionBuilder 
+        title="Builder"
+        description="Write your conclusion."
+      />
+    )
+  },
+  {
     id: 'sandwich',
     title: 'Sandwich Technique',
     image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
@@ -62,11 +72,6 @@ export default function Module5() {
       <ModuleAudio moduleId="module5" narration={MODULE_5_NARRATION} />
       
       <SlideDeck slides={module5Slides} />
-
-      <ConclusionBuilder 
-        title="Exercise 5: Build Your Conclusion"
-        description="Write a complete conclusion for a presentation."
-      />
 
       <Quiz 
         id="module5"

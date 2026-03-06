@@ -40,6 +40,17 @@ const module4Slides = [
     )
   },
   {
+    id: 'flashcards-exercise',
+    title: 'Vocabulary Drill',
+    content: (
+      <Flashcards 
+        title="Trend Vocab"
+        description="Review common verbs and adverbs."
+        cards={trendCards}
+      />
+    )
+  },
+  {
     id: 'axes',
     title: 'Introducing Visuals',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
@@ -52,6 +63,17 @@ const module4Slides = [
           <p>"I'd like to draw your <strong className="text-indigo-600">attention</strong> to..."</p>
         </div>
       </div>
+    )
+  },
+  {
+    id: 'graph-exercise',
+    title: 'Exercise: Describe the Graph',
+    content: (
+      <GraphDescription 
+        title="Practice"
+        description="Describe the trend shown below."
+        keywords={['increase', 'rise', 'steadily', 'gradually', 'trend', 'sales']}
+      />
     )
   }
 ];
@@ -69,18 +91,6 @@ export default function Module4() {
       <ModuleAudio moduleId="module4" narration={MODULE_4_NARRATION} />
       
       <SlideDeck slides={module4Slides} />
-
-      <Flashcards 
-        title="Exercise 4a: Trend Vocabulary"
-        description="Review common verbs and adverbs for describing trends."
-        cards={trendCards}
-      />
-
-      <GraphDescription 
-        title="Exercise 4b: Describe the Graph"
-        description="Write a short description of the trend shown below."
-        keywords={['increase', 'rise', 'steadily', 'gradually', 'trend', 'sales']}
-      />
 
       <Quiz 
         id="module4"

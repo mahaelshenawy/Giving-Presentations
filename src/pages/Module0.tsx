@@ -20,6 +20,22 @@ const module0Slides = [
     )
   },
   {
+    id: 'video',
+    title: 'Watch the Overview',
+    content: (
+      <div className="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative shadow-lg">
+        <video 
+          controls 
+          className="w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&q=80&w=1000"
+        >
+          <source src="./presentation.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    )
+  },
+  {
     id: 'stages',
     title: 'The 5 Key Stages',
     image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
@@ -57,20 +73,6 @@ export default function Module0() {
       <ModuleAudio moduleId="module0" narration={MODULE_0_NARRATION} />
       
       <SlideDeck slides={module0Slides} />
-
-      <section className="mt-12 mb-8">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">Watch the Overview</h2>
-        <div className="aspect-video bg-slate-900 rounded-3xl overflow-hidden relative shadow-2xl">
-          <video 
-            controls 
-            className="w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&q=80&w=1000"
-          >
-            <source src="./presentation.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </section>
 
       <Quiz
         id="module0"
