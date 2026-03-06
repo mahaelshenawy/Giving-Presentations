@@ -26,22 +26,34 @@ export default function Module1() {
           A successful presentation starts with a strong opening. The <strong>WISE</strong> flow is a simple and effective structure to get your presentation off to a great start.
         </p>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
-            <h4 className="font-bold text-indigo-900 mb-2">W - Welcome</h4>
-            <p className="text-sm text-indigo-800">"Good morning, ladies and gentlemen. First of all, let me thank you all for coming here today."</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+          <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
+            <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center text-xs">W</span>
+              Welcome
+            </h4>
+            <p className="text-sm text-indigo-800 italic">"Good morning, ladies and gentlemen. First of all, let me thank you all for coming here today."</p>
           </div>
-          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
-            <h4 className="font-bold text-indigo-900 mb-2">I - Introduce</h4>
-            <p className="text-sm text-indigo-800">"Let me introduce myself. I'm Jane Doe, the new Marketing Manager."</p>
+          <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
+            <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center text-xs">I</span>
+              Introduce
+            </h4>
+            <p className="text-sm text-indigo-800 italic">"Let me introduce myself. I'm Jane Doe, the new Marketing Manager."</p>
           </div>
-          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
-            <h4 className="font-bold text-indigo-900 mb-2">S - Say Topic</h4>
-            <p className="text-sm text-indigo-800">"What I'd like to present to you today is our new product line."</p>
+          <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
+            <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center text-xs">S</span>
+              Say Topic
+            </h4>
+            <p className="text-sm text-indigo-800 italic">"What I'd like to present to you today is our new product line."</p>
           </div>
-          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
-            <h4 className="font-bold text-indigo-900 mb-2">E - Explain Relevance</h4>
-            <p className="text-sm text-indigo-800">"My talk is particularly relevant to those of you who work in sales."</p>
+          <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
+            <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center text-xs">E</span>
+              Explain Relevance
+            </h4>
+            <p className="text-sm text-indigo-800 italic">"My talk is particularly relevant to those of you who work in sales."</p>
           </div>
         </div>
       </section>

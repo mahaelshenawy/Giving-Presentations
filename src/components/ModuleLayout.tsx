@@ -38,14 +38,15 @@ export default function ModuleLayout({
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="max-w-4xl mx-auto pb-20"
+      className="max-w-4xl mx-auto pb-20 px-4 sm:px-6"
     >
-      <header className="mb-10">
-        <div className="flex items-center gap-3 mb-2">
-          <h1 className="text-3xl font-bold text-slate-900">{title}</h1>
-          {isCompleted && <CheckCircle className="w-6 h-6 text-emerald-500" />}
+      <header className="mb-12 pt-8">
+        <div className="flex items-center gap-4 mb-3">
+          <div className="h-10 w-1 bg-indigo-600 rounded-full"></div>
+          <h1 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">{title}</h1>
+          {isCompleted && <CheckCircle className="w-8 h-8 text-emerald-500 fill-emerald-50" />}
         </div>
-        <p className="text-lg text-slate-600">{description}</p>
+        <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-2xl">{description}</p>
       </header>
 
       <div className="space-y-12">

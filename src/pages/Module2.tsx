@@ -25,21 +25,45 @@ export default function Module2() {
           Your body language speaks volumes before you even say a word. Here are some key tips:
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <h4 className="font-bold text-slate-900 mb-2">Posture & Hands</h4>
-            <ul className="space-y-2 text-slate-600 text-sm">
-              <li>Stand straight but relaxed. Keep knees unlocked.</li>
-              <li>Keep your hands by your side or use open gestures.</li>
-              <li>Avoid crossing your arms or hiding hands in pockets.</li>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
+            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-accessibility"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3.5"/><path d="M14 18V9"/><path d="m5 19 1-7-1-7"/><path d="M12 11h-3"/></svg>
+            </div>
+            <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Posture & Hands</h4>
+            <ul className="space-y-3 text-slate-600">
+              <li className="flex gap-2">
+                <span className="text-blue-500 font-bold">•</span>
+                <span>Stand straight but relaxed. Keep knees unlocked.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-blue-500 font-bold">•</span>
+                <span>Keep your hands by your side or use open gestures.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-blue-500 font-bold">•</span>
+                <span>Avoid crossing your arms or hiding hands in pockets.</span>
+              </li>
             </ul>
           </div>
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <h4 className="font-bold text-slate-900 mb-2">Eye Contact & Pacing</h4>
-            <ul className="space-y-2 text-slate-600 text-sm">
-              <li>Make eye contact with individuals, not just the back wall.</li>
-              <li>Speak about 20% more slowly than your normal conversational speed.</li>
-              <li>Move or lean forward to emphasize important points.</li>
+          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
+            <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Eye Contact & Pacing</h4>
+            <ul className="space-y-3 text-slate-600">
+              <li className="flex gap-2">
+                <span className="text-indigo-500 font-bold">•</span>
+                <span>Make eye contact with individuals, not just the back wall.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-indigo-500 font-bold">•</span>
+                <span>Speak about 20% more slowly than your normal speed.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-indigo-500 font-bold">•</span>
+                <span>Move or lean forward to emphasize important points.</span>
+              </li>
             </ul>
           </div>
         </div>
