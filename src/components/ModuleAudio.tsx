@@ -33,6 +33,8 @@ function selectBestVoice(): SpeechSynthesisVoice | null {
 
   const premiumPatterns = [
     'Kore',
+    'Karen',
+    'Samantha',
     'Google UK English Female',
     'Google UK English Male',
     'Google US English',
@@ -40,8 +42,6 @@ function selectBestVoice(): SpeechSynthesisVoice | null {
     'Microsoft Jenny',
     'Microsoft Guy',
     'Microsoft Zira',
-    'Samantha',
-    'Karen',
     'Daniel',
     'Moira',
     'Tessa',
@@ -49,7 +49,7 @@ function selectBestVoice(): SpeechSynthesisVoice | null {
   ];
 
   for (const pattern of premiumPatterns) {
-    const match = englishVoices.find(v => v.name.includes(pattern));
+    const match = englishVoices.find(v => v.name.toLowerCase().includes(pattern.toLowerCase()));
     if (match) return match;
   }
 
