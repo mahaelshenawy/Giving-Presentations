@@ -1,6 +1,7 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import ModuleAudio from '../components/ModuleAudio';
+import SlideDeck from '../components/SlideDeck';
 import Flashcards from '../components/Flashcards';
 import GraphDescription from '../components/GraphDescription';
 import Quiz from '../components/Quiz';
@@ -15,8 +16,44 @@ const trendCards = [
   { id: '4', front: 'to remain stable', back: 'to stay the same', category: 'No Change' },
   { id: '5', front: 'to peak', back: 'to reach a high point', category: 'Upward Trend' },
   { id: '6', front: 'to hit a low', back: 'to reach the lowest point', category: 'Downward Trend' },
-  { id: '7', front: 'sharply', back: 'quickly and suddenly (adverb)', category: 'Speed/Degree' },
-  { id: '8', front: 'steadily', back: 'gradually and continuously (adverb)', category: 'Speed/Degree' },
+];
+
+const module4Slides = [
+  {
+    id: 'trends',
+    title: 'Describing Trends',
+    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-4">
+        <p>Use two powerful grammar patterns to describe change:</p>
+        <div className="space-y-3">
+          <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
+            <p className="text-xs font-bold text-indigo-600 uppercase">Pattern 1: Verb + Adverb</p>
+            <p className="text-lg">"Sales <strong className="text-indigo-900">increased sharply</strong>."</p>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
+            <p className="text-xs font-bold text-indigo-600 uppercase">Pattern 2: Adj + Noun</p>
+            <p className="text-lg">"There was a <strong className="text-indigo-900">sharp increase</strong>."</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: 'axes',
+    title: 'Introducing Visuals',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-4">
+        <p>Never assume the audience understands your chart. Explain it:</p>
+        <div className="space-y-2 text-sm italic border-l-4 border-indigo-200 pl-4 bg-slate-50 p-4 rounded-r-xl">
+          <p>"The <strong className="text-indigo-600">vertical axis</strong> represents revenue..."</p>
+          <p>"The <strong className="text-indigo-600">horizontal axis</strong> shows time..."</p>
+          <p>"I'd like to draw your <strong className="text-indigo-600">attention</strong> to..."</p>
+        </div>
+      </div>
+    )
+  }
 ];
 
 export default function Module4() {
@@ -30,58 +67,24 @@ export default function Module4() {
       nextModule="/module/5"
     >
       <ModuleAudio moduleId="module4" narration={MODULE_4_NARRATION} />
-      <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
-        <img 
-          src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000" 
-          alt="Business trends" 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
-          <p className="text-white font-medium text-lg">Mastering the language of trends leads to clearer insights.</p>
-        </div>
-      </div>
-
-      <section className="prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Talking About Visuals</h2>
-        <p className="text-slate-600 mb-6">
-          When introducing a visual, it's important to tell the audience what they are looking at and highlight the key information.
-        </p>
-        
-        <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 mb-8">
-          <h4 className="font-bold text-indigo-900 mb-4">Useful Phrases</h4>
-          <ul className="space-y-2 text-indigo-800">
-            <li><strong>Introducing:</strong> "Let's look at this bar chart which shows..."</li>
-            <li><strong>Explaining:</strong> "The vertical axis represents... while the horizontal axis shows..."</li>
-            <li><strong>Highlighting:</strong> "I'd like to draw your attention to this sharp increase here."</li>
-            <li><strong>Concluding:</strong> "As you can see, the overall trend is positive."</li>
-          </ul>
-        </div>
-      </section>
+      
+      <SlideDeck slides={module4Slides} />
 
       <Flashcards 
         title="Exercise 4a: Trend Vocabulary"
-        description="Review these common verbs and adverbs used to describe trends in graphs and charts."
+        description="Review common verbs and adverbs for describing trends."
         cards={trendCards}
       />
 
-      <section className="prose prose-slate max-w-none mt-12 mb-8">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Describing Trends</h2>
-        <p className="text-slate-600">
-          You can describe trends using a <strong>Verb + Adverb</strong> (e.g., "Sales increased sharply") or an <strong>Adjective + Noun</strong> (e.g., "There was a sharp increase in sales").
-        </p>
-      </section>
-
       <GraphDescription 
         title="Exercise 4b: Describe the Graph"
-        description="Look at the bar chart below and write a short description of the trend it shows. Try to use words like 'increase', 'steadily', or 'rise'."
-        graphUrl=""
-        keywords={['increase', 'increased', 'rise', 'rose', 'steadily', 'gradually', 'upward', 'trend', 'quarters', 'sales']}
+        description="Write a short description of the trend shown below."
+        keywords={['increase', 'rise', 'steadily', 'gradually', 'trend', 'sales']}
       />
 
       <Quiz 
         id="module4"
         title="Check Your Knowledge: Section 4"
-        description="Test your vocabulary for describing trends and visuals."
         onComplete={(score) => setQuizScore('module4', score)}
         questions={[
           {
@@ -95,12 +98,6 @@ export default function Module4() {
             question: "True or False: 'Sharply' means the same as 'Gradually'.",
             options: ['True', 'False'],
             correctAnswer: 1
-          },
-          {
-            id: 'm4-q3',
-            question: "Complete the sentence: 'There was a ___ increase in sales.'",
-            options: ['steady', 'steadily', 'rose', 'increased'],
-            correctAnswer: 0
           }
         ]}
       />

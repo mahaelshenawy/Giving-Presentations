@@ -1,10 +1,49 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import ModuleAudio from '../components/ModuleAudio';
+import SlideDeck from '../components/SlideDeck';
 import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
 
 const MODULE_0_NARRATION = `Welcome to Presentations Mastery! This is your introductory module. Before we begin learning the specific language and techniques you'll need, please take a moment to watch the video below. It covers the five essential steps for mastering any presentation. I recommend taking notes as you watch, because you'll be answering questions about the content afterwards. The five stages are: starting strong, guiding your audience, using visuals effectively, finishing strong, and mastering the question and answer session. Take your time with the video, and when you're ready, scroll down to complete the quiz. Good luck!`;
+
+const module0Slides = [
+  {
+    id: 'intro',
+    title: 'Welcome to Mastery',
+    image: 'https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-4">
+        <p>Welcome to your journey in professional presentation mastery. In this lesson, we break down the art of public speaking into manageable, powerful steps.</p>
+        <p>Watch the introductory video to see the big picture before we dive into the details.</p>
+      </div>
+    )
+  },
+  {
+    id: 'stages',
+    title: 'The 5 Key Stages',
+    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-3">
+        {[
+          { n: 1, t: 'Start Strong', d: 'Hook your audience from the first word.' },
+          { n: 2, t: 'Guide Them', d: 'Use clear signposting for structure.' },
+          { n: 3, t: 'Use Visuals', d: "Show, don't just tell. Keep it clean." },
+          { n: 4, t: 'Finish Strong', d: 'Leave a lasting, powerful impression.' },
+          { n: 5, t: 'Master Q&A', d: 'Handle any question with confidence.' }
+        ].map(s => (
+          <div key={s.n} className="flex gap-3 items-center bg-white p-2 rounded-lg border border-slate-100 shadow-sm">
+            <div className="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold">{s.n}</div>
+            <div>
+              <p className="font-bold text-sm leading-none">{s.t}</p>
+              <p className="text-xs text-slate-500">{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+];
 
 export default function Module0() {
   const { setQuizScore } = useProgressStore();
@@ -16,13 +55,12 @@ export default function Module0() {
       nextModule="/module/1"
     >
       <ModuleAudio moduleId="module0" narration={MODULE_0_NARRATION} />
-      <section className="prose prose-slate max-w-none mb-8">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">5 Steps to Mastery</h2>
-        <p className="text-slate-600 mb-6">
-          Before we dive into the specific language and phrases you'll need, watch this video to get a high-level overview of what makes a presentation truly successful. 
-        </p>
-        
-        <div className="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative mb-8 shadow-md">
+      
+      <SlideDeck slides={module0Slides} />
+
+      <section className="mt-12 mb-8">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">Watch the Overview</h2>
+        <div className="aspect-video bg-slate-900 rounded-3xl overflow-hidden relative shadow-2xl">
           <video 
             controls 
             className="w-full h-full object-cover"
@@ -31,47 +69,6 @@ export default function Module0() {
             <source src="./presentation.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        </div>
-        
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <h3 className="text-xl font-bold text-indigo-900 mb-4">Video Summary: The 5 Key Stages</h3>
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold flex-shrink-0">1</div>
-              <div>
-                <h4 className="font-bold text-slate-900 m-0">Start Strong</h4>
-                <p className="text-sm text-slate-600 mt-1">Hook your audience from the very first word. Use the WISE flow (Welcome, Introduce, Say, Explain) and grab their attention with a question, statistic, story, or problem.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold flex-shrink-0">2</div>
-              <div>
-                <h4 className="font-bold text-slate-900 m-0">Guide Them</h4>
-                <p className="text-sm text-slate-600 mt-1">Use clear signposting to structure your talk. Phrases like "Moving on to my next point" act like road signs so nobody gets lost.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold flex-shrink-0">3</div>
-              <div>
-                <h4 className="font-bold text-slate-900 m-0">Use Visuals</h4>
-                <p className="text-sm text-slate-600 mt-1">Show, don't just tell. Use the right visual for the job (e.g., bar charts for comparing, flowcharts for processes) and keep them clean and easy to read.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold flex-shrink-0">4</div>
-              <div>
-                <h4 className="font-bold text-slate-900 m-0">Finish Strong</h4>
-                <p className="text-sm text-slate-600 mt-1">Leave a lasting impression with a powerful conclusion. Summarize, use a quote, ask a question, or use the 'sandwich' technique to tie back to your intro.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold flex-shrink-0">5</div>
-              <div>
-                <h4 className="font-bold text-slate-900 m-0">Master Q&A</h4>
-                <p className="text-sm text-slate-600 mt-1">Handle any questions with confidence. If you get a tough question: ask them to repeat it, say it back, answer it, or be honest if you don't know.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -84,56 +81,31 @@ export default function Module0() {
           {
             id: 'm0-q1',
             question: "What does the WISE flow stand for?",
-            options: [
-              'Welcome, Introduce, Say, Explain',
-              'Write, Inform, Speak, Engage',
-              'Welcome, Inspire, Summarize, End',
-              'Watch, Introduce, Speak, Explain'
-            ],
+            options: ['Welcome, Introduce, Say, Explain', 'Write, Inform, Speak, Engage', 'Welcome, Inspire, Summarize, End', 'Watch, Introduce, Speak, Explain'],
             correctAnswer: 0
           },
           {
             id: 'm0-q2',
             question: "Which of the following is NOT mentioned as a way to hook your audience at the start?",
-            options: [
-              'Ask a question',
-              'Share a statistic',
-              'Read directly from your slides',
-              'Tell a story'
-            ],
+            options: ['Ask a question', 'Share a statistic', 'Read directly from your slides', 'Tell a story'],
             correctAnswer: 2
           },
           {
             id: 'm0-q3',
             question: "What is the purpose of 'signposting' in a presentation?",
-            options: [
-              'To decorate your slides with visual signs',
-              'To guide the audience through the structure of your talk',
-              'To signal that the presentation is over',
-              'To point at the screen during your talk'
-            ],
+            options: ['To decorate your slides with visual signs', 'To guide the audience through the structure of your talk', 'To signal that the presentation is over', 'To point at the screen during your talk'],
             correctAnswer: 1
           },
           {
             id: 'm0-q4',
             question: "According to the video, which type of visual is best for comparing data?",
-            options: [
-              'Flowcharts',
-              'Photographs',
-              'Bar charts',
-              'Word clouds'
-            ],
+            options: ['Flowcharts', 'Photographs', 'Bar charts', 'Word clouds'],
             correctAnswer: 2
           },
           {
             id: 'm0-q5',
             question: "What is the 'sandwich' technique for concluding a presentation?",
-            options: [
-              'Serving food during the conclusion to keep the audience engaged',
-              'Placing the most important data between two less important points',
-              'Tying the conclusion back to something from the introduction',
-              'Breaking the conclusion into three equal layers'
-            ],
+            options: ['Serving food during the conclusion to keep the audience engaged', 'Placing the most important data between two less important points', 'Tying the conclusion back to something from the introduction', 'Breaking the conclusion into three equal layers'],
             correctAnswer: 2
           },
           {
@@ -151,12 +123,7 @@ export default function Module0() {
           {
             id: 'm0-q8',
             question: "Which of the following is a recommended way to finish a presentation strongly?",
-            options: [
-              'Apologize for taking too long',
-              'Introduce new data that wasn\'t covered',
-              'End with a memorable quote or question',
-              'Simply stop talking and sit down'
-            ],
+            options: ['Apologize for taking too long', 'Introduce new data that wasn\'t covered', 'End with a memorable quote or question', 'Simply stop talking and sit down'],
             correctAnswer: 2
           }
         ]}

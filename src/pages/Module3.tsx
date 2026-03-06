@@ -1,57 +1,72 @@
 import React from 'react';
 import ModuleLayout from '../components/ModuleLayout';
 import ModuleAudio from '../components/ModuleAudio';
-import Quiz from '../components/Quiz';
+import SlideDeck from '../components/SlideDeck';
 import VisualDesignChallenge from '../components/VisualDesignChallenge';
+import Quiz from '../components/Quiz';
 import { useProgressStore } from '../store/useProgress';
 
-const MODULE_3_NARRATION = `This section teaches you how to use presentation tools effectively and present numbers clearly. First, let's learn the Rule of Six. This rule helps you avoid overloading your slides with too much information. It means: a maximum of six lines per slide, and a maximum of six words per line. If you follow this rule, your slides will be clean and easy to read. Next, let's talk about saying numbers correctly. Numbers can be tricky for your audience, so here are some important rules. For decimals, use the word "point" — seven point two, not seven comma two. For currency, say "one hundred and fifty thousand euros." And remember the No S Rule: never add an S to hundred, million, or billion when a specific number comes before them. Say "two million dollars," not "two millions dollars." It's also better to use approximate numbers in presentations because they're easier for the audience to remember. Use phrases like "just under" or "nearly" for slightly less, "about," "approximately," or "roughly" for about the same, and "just over" or "well over" for slightly more. For example, instead of saying "ninety thousand and eighty-three mobile phones," say "just over ninety thousand mobile phones." Finally, when presenting visuals, use emphasis phrases like "I'd like to stress the following point" or "I'd like to draw your attention to" to highlight key data.`;
+const MODULE_3_NARRATION = `This section teaches you how to use presentation tools effectively and present numbers clearly. First, let's learn the Rule of Six. This rule helps you avoid overloading your slides with too much information. It means: a maximum of six lines per slide, and a maximum of six words per line. If you follow this rule, your slides will be clean and easy to read. Next, let's talk about saying numbers correctly. Numbers can be tricky for your audience, so here are some important rules. For decimals, use the word "point" — seven point two, not seven comma two. For currency, say "one hundred and fifty thousand euros." And remember the No S Rule: never add an S to hundred, million, or billion when a specific number comes before them. Say "two million dollars," not "two millions dollars." It's also better to use approximate numbers in presentations because they're easier for the audience to remember. Use phrases like "just under" or "nearly" for slightly less, "about," "approximately," or "roughly" for about the same, and "just over" or "well over" for slightly more. Finally, when presenting visuals, use emphasis phrases like "I'd like to stress the following point" or "I'd like to draw your attention to" to highlight key data.`;
 
-const numberQuestions = [
+const module3Slides = [
   {
-    id: 'q1',
-    question: 'How do you say "1.6bn" in a presentation?',
-    options: [
-      'One point six billion',
-      'One thousand six hundred million',
-      'One comma six billion',
-      'Sixteen hundred million'
-    ],
-    correctAnswer: 0
+    id: 'rule-of-six',
+    title: 'The Rule of Six',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-4">
+        <p>Keep your slides clean and readable with this simple formula:</p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 text-center">
+            <span className="text-4xl font-black text-amber-600">6</span>
+            <p className="font-bold">Lines Max</p>
+          </div>
+          <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 text-center">
+            <span className="text-4xl font-black text-amber-600">6</span>
+            <p className="font-bold">Words/Line</p>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
-    id: 'q2',
-    question: 'How do you say "€150,000"?',
-    options: [
-      'One hundred fifty thousand euros',
-      'One hundred and fifty thousand euros',
-      'A hundred fifty thousand euro',
-      'One fifty thousand euros'
-    ],
-    correctAnswer: 1
+    id: 'numbers',
+    title: 'Speaking Numbers',
+    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-4 text-sm">
+        <div className="p-3 bg-white rounded-xl shadow-sm border border-slate-100">
+          <strong>Decimals:</strong> 7.2 = "Seven <span className="text-indigo-600 font-bold">point</span> two"
+        </div>
+        <div className="p-3 bg-white rounded-xl shadow-sm border border-slate-100">
+          <strong>Currency:</strong> €150k = "...and fifty thousand euros"
+        </div>
+        <div className="p-3 bg-indigo-600 text-white rounded-xl shadow-sm">
+          <strong>The "No S" Rule:</strong> Two <span className="underline decoration-2">million</span> dollars (never "millions")
+        </div>
+      </div>
+    )
   },
   {
-    id: 'q3',
-    question: 'Instead of saying "90,083 mobile phones", what is a better approximate phrase?',
-    options: [
-      'Exactly ninety thousand and eighty-three',
-      'Just over 90,000 mobile phones',
-      'Around 100,000 mobile phones',
-      'Nearly 90,000 mobile phones'
-    ],
-    correctAnswer: 1
-  },
-  {
-    id: 'q4',
-    question: "True or False: The 'Rule of Six' means a maximum of six words per slide.",
-    options: ['True', 'False'],
-    correctAnswer: 1
-  },
-  {
-    id: 'q5',
-    question: "How do you say '7.2'?",
-    options: ['Seven point two', 'Seven comma two', 'Seventy two', 'Seven and two'],
-    correctAnswer: 0
+    id: 'approx',
+    title: 'Power of Approximation',
+    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000',
+    content: (
+      <div className="space-y-4">
+        <p>Make data memorable. Don't say "90,083". Say:</p>
+        <div className="grid grid-cols-3 gap-2 text-xs">
+          <div className="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <strong>Less:</strong> "Just under", "Nearly"
+          </div>
+          <div className="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <strong>Same:</strong> "Roughly", "Around"
+          </div>
+          <div className="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <strong>More:</strong> "Just over", "Well over"
+          </div>
+        </div>
+      </div>
+    )
   }
 ];
 
@@ -61,104 +76,41 @@ export default function Module3() {
     <ModuleLayout
       id="module3"
       title="3. My next slide shows..."
-      description="Learn how to use presentation tools effectively, present numbers clearly, and design impactful slides."
+      description="Learn how to use presentation tools effectively and present numbers clearly."
       prevModule="/module/2"
       nextModule="/module/4"
     >
       <ModuleAudio moduleId="module3" narration={MODULE_3_NARRATION} />
-      <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
-        <img 
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
-          alt="Data visualization" 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
-          <p className="text-white font-medium text-lg">Impactful visuals tell a story that words cannot.</p>
-        </div>
-      </div>
+      
+      <SlideDeck slides={module3Slides} />
 
-      <section className="prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">The Rule of Six</h2>
-        <p className="text-slate-600 mb-6">
-          When presenting text on slides, it is a good idea to use the <strong>Rule of Six</strong> which means:
-        </p>
-        <ul className="space-y-2 text-slate-600 list-disc pl-5 mb-8">
-          <li>A maximum of six lines per slide.</li>
-          <li>A maximum of six words per line.</li>
-        </ul>
-        <p className="text-slate-600">
-          If you stick to this rule, you won't risk overloading your bullet charts with too much information.
-        </p>
-      </section>
-
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6 mb-8 mt-8">
-          <h4 className="font-bold text-slate-900 mb-3">Speaker Script Examples</h4>
-          <div>
-            <h5 className="font-bold text-sm text-slate-700 mb-1">Introducing and Highlighting Visuals</h5>
-            <p className="text-sm text-slate-600 italic">Let's now look at the next slide which shows our turnover. I'd like to <strong>stress</strong> the following point: our turnover last year was excellent. What is really <strong>important</strong> is how much we are prepared to invest. I'd like to draw your <strong>attention</strong> to the latest figures in the right-hand column.</p>
-          </div>
-          <div>
-            <h5 className="font-bold text-sm text-slate-700 mb-1">Emphasis Techniques</h5>
-            <p className="text-sm text-slate-600 italic">Just how good are these results? I think you'll agree that the results are <strong>extremely important</strong>. We compared the two offers and found the first one <strong>totally unacceptable</strong>. It would be <strong>completely wrong</strong> to change our strategy now.</p>
-          </div>
-        </div>
-
-        <VisualDesignChallenge />
-
-        <section className="prose prose-slate max-w-none mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Saying Numbers</h2>
-          <p className="text-slate-600 mb-6">
-            Numbers, especially long ones, are often difficult for the audience to understand. Try to say numbers slowly and clearly, and point at them while speaking. It is often better to use approximate numbers in presentations as they are easier for the audience to understand and remember.
-          </p>
-          
-          <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 mb-8">
-            <h4 className="font-bold text-amber-900 mb-4">Quick Reference: Articulating Numbers</h4>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-amber-800">
-              <li><strong>Fractions:</strong> 2/3 = "two-thirds"; 3/4 = "three-quarters".</li>
-              <li><strong>Decimals:</strong> 7.2 = "seven point two".</li>
-              <li><strong>Currency:</strong> €150,000 = "one hundred and fifty thousand euro(s)".</li>
-              <li><strong>Measurements:</strong> 175 m² = "one hundred and seventy-five square metres".</li>
-              <li><strong>The "No S" Rule:</strong> Do NOT add an 's' to hundred, million, or billion when a specific number precedes them. Say "<strong>two million</strong> dollars," NOT "two millions dollars."</li>
-            </ul>
-          </div>
-          
-          <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 mb-8">
-            <h4 className="font-bold text-indigo-900 mb-4">Approximation Phrases</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-indigo-800">
-            <div>
-              <strong className="block mb-1">- (less)</strong>
-              <ul className="list-disc pl-4">
-                <li>a little less than</li>
-                <li>just under</li>
-                <li>nearly</li>
-              </ul>
-            </div>
-            <div>
-              <strong className="block mb-1">+/- (about the same)</strong>
-              <ul className="list-disc pl-4">
-                <li>about</li>
-                <li>approximately</li>
-                <li>around</li>
-                <li>roughly</li>
-              </ul>
-            </div>
-            <div>
-              <strong className="block mb-1">+ (more)</strong>
-              <ul className="list-disc pl-4">
-                <li>just over</li>
-                <li>well over</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <VisualDesignChallenge />
 
       <Quiz 
         id="module3"
         title="Exercise 3: Numbers and Approximations"
-        description="Test your knowledge on how to say numbers and use approximations correctly in English."
+        description="Test your knowledge on numbers and approximations."
         onComplete={(score) => setQuizScore('module3', score)}
-        questions={numberQuestions}
+        questions={[
+          {
+            id: 'q1',
+            question: 'How do you say "1.6bn" in a presentation?',
+            options: ['One point six billion', 'One thousand six hundred million', 'One comma six billion', 'Sixteen hundred million'],
+            correctAnswer: 0
+          },
+          {
+            id: 'q2',
+            question: 'How do you say "€150,000"?',
+            options: ['One hundred fifty thousand euros', 'One hundred and fifty thousand euros', 'A hundred fifty thousand euro', 'One fifty thousand euros'],
+            correctAnswer: 1
+          },
+          {
+            id: 'q3',
+            question: 'Instead of saying "90,083 mobile phones", what is a better approximate phrase?',
+            options: ['Exactly ninety thousand and eighty-three', 'Just over 90,000 mobile phones', 'Around 100,000 mobile phones', 'Nearly 90,000 mobile phones'],
+            correctAnswer: 1
+          }
+        ]}
       />
     </ModuleLayout>
   );
