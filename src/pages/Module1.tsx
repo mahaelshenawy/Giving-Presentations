@@ -23,6 +23,17 @@ export default function Module1() {
       prevModule="/module/0"
       nextModule="/module/2"
     >
+      <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
+        <img 
+          src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000" 
+          alt="Public speaking" 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
+          <p className="text-white font-medium text-lg">Confidence starts with a strong opening.</p>
+        </div>
+      </div>
+
       <section className="prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">The WISE Flow</h2>
         <p className="text-slate-600 mb-6">
@@ -30,16 +41,6 @@ export default function Module1() {
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          <div className="relative group overflow-hidden rounded-3xl mb-8">
-            <img 
-              src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000" 
-              alt="Public speaking" 
-              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex items-end p-6">
-              <p className="text-white font-medium">Confidence starts with a strong opening.</p>
-            </div>
-          </div>
           <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
             <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center text-xs">W</span>

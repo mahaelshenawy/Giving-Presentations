@@ -28,7 +28,7 @@ export default function Module4() {
     >
       <div className="relative rounded-3xl overflow-hidden mb-12 h-64 group">
         <img 
-          src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=1000" 
+          src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1000" 
           alt="Business trends" 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
